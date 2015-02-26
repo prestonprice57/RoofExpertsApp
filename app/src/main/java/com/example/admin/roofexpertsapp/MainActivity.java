@@ -37,9 +37,4 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void toEmailActivity(View v) {
-        Intent intent = new Intent (getBaseContext(), EmailActivity.class);
-        startActivity(intent);
-    }
 }
