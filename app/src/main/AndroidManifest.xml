@@ -20,6 +20,10 @@
             android:name=".SelectorPage"
             android:label="@string/title_activity_selector_page" >
         </activity>
+        <activity
+            android:name=".EmailActivity"
+            android:label="@string/title_activity_email" >
+        </activity>
     </application>
 
 </manifest>

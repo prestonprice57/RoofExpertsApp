@@ -33,4 +33,15 @@
         android:layout_alignStart="@+id/create"
         android:layout_marginTop="15dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/create"
+        android:layout_alignStart="@+id/create"
+        android:onClick="toEmailActivity"
+        android:layout_marginBottom="93dp" />
+
 </RelativeLayout>
