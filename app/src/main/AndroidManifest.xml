@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SelectorPage"
+            android:label="@string/title_activity_selector_page" >
+        </activity>
     </application>
 
 </manifest>

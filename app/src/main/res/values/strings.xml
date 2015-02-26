@@ -2,7 +2,14 @@
 <resources>
 
     <string name="app_name">Roof Experts App</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_selector_page">SelectorPage</string>
+
+    <string-array name="estimate_type">
+        <item>Select an estimate type...</item>
+        <item>Tile Estimate</item>
+        <item>Flat Roof Estimate</item>
+        <item>Shingle Estimate</item>
+    </string-array>
 
 </resources>
