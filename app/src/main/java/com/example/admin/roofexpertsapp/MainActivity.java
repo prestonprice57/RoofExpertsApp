@@ -42,4 +42,9 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = new Intent (getBaseContext(), EmailActivity.class);
         startActivity(intent);
     }
+
+    public void toSelectorPage(View v) {
+        Intent intent = new Intent (getBaseContext(), SelectorPage.class);
+        startActivity(intent);
+    }
 }
