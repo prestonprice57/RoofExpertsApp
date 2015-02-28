@@ -12,6 +12,13 @@
         <item>Shingle Estimate</item>
     </string-array>
 
+    <string-array name="tile_jobs">
+        <item>Leak Repair</item>
+        <item>2-Year Tune-Up</item>
+        <item>5-Year Tune-Up</item>
+        <item>20-Year Lift and Re-lay</item>
+    </string-array>
+
     <string name="title_activity_email">EmailActivity</string>
     <string name="hello_world">Hello world!</string>
 

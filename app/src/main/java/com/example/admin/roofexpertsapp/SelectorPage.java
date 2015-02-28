@@ -15,17 +15,12 @@ public class SelectorPage extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selector_page);
 
-        Spinner spinner = (Spinner) findViewById(R.id.estimate_spinner);
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
+        Spinner spinner = (Spinner) findViewById(R.id.job_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.estimate_type, android.R.layout.simple_spinner_item);
-
-        // Specify the layout to use when the list of choices appears
+                R.array.tile_jobs, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new JobListener());
     }
 
 
