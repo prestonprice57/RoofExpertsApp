@@ -13,6 +13,7 @@
     </string-array>
 
     <string-array name="tile_jobs">
+        <item>Select a job...</item>
         <item>Leak Repair</item>
         <item>2-Year Tune-Up</item>
         <item>5-Year Tune-Up</item>

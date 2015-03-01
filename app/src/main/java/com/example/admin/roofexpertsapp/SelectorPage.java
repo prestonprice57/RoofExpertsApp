@@ -4,8 +4,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class SelectorPage extends ActionBarActivity {
@@ -20,7 +24,35 @@ public class SelectorPage extends ActionBarActivity {
                 R.array.tile_jobs, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new JobListener());
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (parent.getItemAtPosition(position).toString().equals("Leak Repair")) {
+                    TextView text = (TextView) findViewById(R.id.leakNumTile);
+                    text.setVisibility(View.VISIBLE);
+
+                    EditText edit = (EditText) findViewById(R.id.leakNumTileEdit);
+                    edit.setVisibility(View.VISIBLE);
+
+                    TextView text2 = (TextView) findViewById(R.id.leakNumArea);
+                    text2.setVisibility(View.VISIBLE);
+
+                    EditText edit2 = (EditText) findViewById(R.id.leakNumAreaEdit);
+                    edit2.setVisibility(View.VISIBLE);
+
+                    TextView text3 = (TextView) findViewById(R.id.leakLoc);
+                    text3.setVisibility(View.VISIBLE);
+
+                    EditText edit3 = (EditText) findViewById(R.id.leakLocEdit);
+                    edit3.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
 

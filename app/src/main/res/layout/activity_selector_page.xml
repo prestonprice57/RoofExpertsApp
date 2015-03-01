@@ -13,5 +13,69 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="122dp" />
+        android:layout_marginTop="122dp"
+        android:visibility="visible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of tiles to pull up"
+        android:id="@+id/leakNumTile"
+        android:layout_below="@+id/job_spinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of leaking areas"
+        android:id="@+id/leakNumArea"
+        android:layout_below="@+id/leakNumTile"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leak location"
+        android:id="@+id/leakLoc"
+        android:layout_below="@+id/leakNumArea"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"
+        android:visibility="invisible" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/leakNumTileEdit"
+        android:layout_above="@+id/leakNumArea"
+        android:layout_toRightOf="@+id/leakNumTile"
+        android:visibility="invisible"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/leakNumAreaEdit"
+        android:layout_alignBottom="@+id/leakLoc"
+        android:layout_toRightOf="@+id/leakNumTile"
+        android:visibility="invisible"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/leakLocEdit"
+        android:visibility="invisible"
+        android:layout_alignBottom="@+id/leakNumArea"
+        android:layout_toRightOf="@+id/leakNumTile"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
