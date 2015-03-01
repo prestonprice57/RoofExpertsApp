@@ -30,19 +30,16 @@ public class SelectorPage extends ActionBarActivity {
                 if (parent.getItemAtPosition(position).toString().equals("Leak Repair")) {
                     TextView text = (TextView) findViewById(R.id.leakNumTile);
                     text.setVisibility(View.VISIBLE);
-
                     EditText edit = (EditText) findViewById(R.id.leakNumTileEdit);
                     edit.setVisibility(View.VISIBLE);
 
                     TextView text2 = (TextView) findViewById(R.id.leakNumArea);
                     text2.setVisibility(View.VISIBLE);
-
                     EditText edit2 = (EditText) findViewById(R.id.leakNumAreaEdit);
                     edit2.setVisibility(View.VISIBLE);
 
                     TextView text3 = (TextView) findViewById(R.id.leakLoc);
                     text3.setVisibility(View.VISIBLE);
-
                     EditText edit3 = (EditText) findViewById(R.id.leakLocEdit);
                     edit3.setVisibility(View.VISIBLE);
                 }
