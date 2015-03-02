@@ -78,4 +78,15 @@
         android:layout_toRightOf="@+id/leakNumTile"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/submitButton"
+        android:layout_below="@+id/leakNumAreaEdit"
+        android:layout_toRightOf="@+id/leakLoc"
+        android:layout_toEndOf="@+id/leakLoc"
+        android:layout_marginTop="52dp"
+        android:onClick="sendLeak"/>
 </RelativeLayout>

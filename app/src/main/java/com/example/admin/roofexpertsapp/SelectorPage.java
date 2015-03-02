@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -42,6 +43,9 @@ public class SelectorPage extends ActionBarActivity {
                     text3.setVisibility(View.VISIBLE);
                     EditText edit3 = (EditText) findViewById(R.id.leakLocEdit);
                     edit3.setVisibility(View.VISIBLE);
+
+                    Button button = (Button) findViewById(R.id.submitButton);
+                    button.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -73,5 +77,9 @@ public class SelectorPage extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void sendLeak(View view) {
+        ;
     }
 }
