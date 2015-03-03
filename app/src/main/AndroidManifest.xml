@@ -24,6 +24,10 @@
             android:name=".EmailActivity"
             android:label="@string/title_activity_email" >
         </activity>
+        <activity
+            android:name=".ClientPage"
+            android:label="@string/title_activity_client_page" >
+        </activity>
     </application>
 
 </manifest>

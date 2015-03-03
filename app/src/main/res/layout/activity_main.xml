@@ -32,7 +32,8 @@
         android:layout_below="@+id/create"
         android:layout_alignLeft="@+id/create"
         android:layout_alignStart="@+id/create"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:onClick="toClientPage"/>
 
     <Button
         android:layout_width="wrap_content"
