@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ public class SelectorPage extends ActionBarActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                clearView();
                 if (parent.getItemAtPosition(position).toString().equals("Leak Repair")) {
                     TextView text = (TextView) findViewById(R.id.leakNumTile);
                     text.setVisibility(View.VISIBLE);
@@ -47,6 +49,12 @@ public class SelectorPage extends ActionBarActivity {
                     Button button = (Button) findViewById(R.id.submitButton);
                     button.setVisibility(View.VISIBLE);
                 }
+
+                // Insert 2-year tune up
+
+                // Insert 5-year tune up
+
+                // Insert 20-year tune up
             }
 
             @Override
@@ -77,6 +85,13 @@ public class SelectorPage extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void clearView() {
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.form_layout);
+        for (int i = 0; i < layout.getChildCount(); i++) {
+            layout.getChildAt(i).setVisibility(View.INVISIBLE);
+        }
     }
 
     public void sendLeak(View view) {
