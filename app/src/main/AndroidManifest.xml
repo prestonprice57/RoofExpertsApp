@@ -28,6 +28,10 @@
             android:name=".ClientPage"
             android:label="@string/title_activity_client_page" >
         </activity>
+        <activity
+            android:name=".PersonalInfo"
+            android:label="@string/title_activity_personal_info" >
+        </activity>
     </application>
 
 </manifest>

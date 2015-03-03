@@ -1,25 +1,24 @@
 package com.example.admin.roofexpertsapp;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class MainActivity extends ActionBarActivity {
+
+public class PersonalInfo extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_personal_info);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_personal_info, menu);
         return true;
     }
 
@@ -36,25 +35,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void toEmailActivity(View v) {
-        Intent intent = new Intent (getBaseContext(), EmailActivity.class);
-        startActivity(intent);
-    }
-
-    public void toPersonalInfo(View v) {
-        Intent intent = new Intent (getBaseContext(), PersonalInfo.class);
-        startActivity(intent);
-    }
-
-    public void toSelectorPage(View v) {
-        Intent intent = new Intent (getBaseContext(), SelectorPage.class);
-        startActivity(intent);
-    }
-
-    public void toClientPage(View v) {
-        Intent intent = new Intent (getBaseContext(), ClientPage.class);
-        startActivity(intent);
     }
 }

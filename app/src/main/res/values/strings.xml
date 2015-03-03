@@ -22,5 +22,6 @@
     <string name="title_activity_email">EmailActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_client_page">ClientPage</string>
+    <string name="title_activity_personal_info">PersonalInfo</string>
 
 </resources>
