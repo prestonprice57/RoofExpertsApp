@@ -10,49 +10,53 @@
         android:layout_height="wrap_content"
         android:layout_weight="1" >
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="1000dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/job_spinner" />
 
-            <RelativeLayout android:layout_width="match_parent"
-                android:layout_height="500dp"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/form_layout">
 
+                <!--
+                Leak Repair Job
+                -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Number of tiles to pull up"
+                    android:text="Number of tiles to pull up:"
                     android:id="@+id/leakNumTile"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="40dp"
-                    android:visibility="invisible" />
+                    android:layout_marginTop="60dp"
+                    android:visibility="gone" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Number of leaking areas"
+                    android:text="Number of leaking areas:"
                     android:id="@+id/leakNumArea"
                     android:layout_below="@+id/leakNumTile"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="40dp"
-                    android:visibility="invisible" />
+                    android:layout_marginTop="25dp"
+                    android:visibility="gone" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Leak location"
+                    android:text="Leak location:"
                     android:id="@+id/leakLoc"
                     android:layout_below="@+id/leakNumArea"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="40dp"
-                    android:visibility="invisible" />
+                    android:layout_marginTop="25dp"
+                    android:visibility="gone" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -60,7 +64,7 @@
                     android:id="@+id/leakNumTileEdit"
                     android:layout_above="@+id/leakNumArea"
                     android:layout_toRightOf="@+id/leakNumTile"
-                    android:visibility="invisible"
+                    android:visibility="gone"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     android:inputType="number"/>
@@ -71,7 +75,7 @@
                     android:id="@+id/leakNumAreaEdit"
                     android:layout_alignBottom="@+id/leakLoc"
                     android:layout_toRightOf="@+id/leakNumTile"
-                    android:visibility="invisible"
+                    android:visibility="gone"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     android:inputType="number"/>
@@ -80,27 +84,189 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/leakLocEdit"
-                    android:visibility="invisible"
+                    android:visibility="gone"
                     android:layout_alignBottom="@+id/leakNumArea"
                     android:layout_toRightOf="@+id/leakNumTile"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Submit"
-                    android:id="@+id/submitButton"
-                    android:layout_below="@+id/leakNumAreaEdit"
-                    android:layout_toRightOf="@+id/leakLoc"
-                    android:layout_toEndOf="@+id/leakLoc"
-                    android:layout_marginTop="52dp"
-                    android:onClick="sendLeak"
-                    android:visibility="invisible" />
-
                 <!--
                 Insert 2-year tune-up
                 -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number of broken tiles:"
+                    android:id="@+id/yrsNumBroke"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="60dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rake:"
+                    android:id="@+id/yrsRake"
+                    android:layout_below="@+id/yrsNumBroke"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:visibility="gone" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ridge:"
+                    android:id="@+id/yrsRidge"
+                    android:visibility="gone"
+                    android:layout_alignBottom="@+id/yrsRake"
+                    android:layout_alignRight="@+id/yrsNumBroke"
+                    android:layout_alignEnd="@+id/yrsNumBroke"
+                    android:layout_marginRight="19dp"
+                    android:layout_marginEnd="19dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number of chipped Tiles:"
+                    android:id="@+id/yrsNumChip"
+                    android:layout_below="@+id/yrsRake"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:visibility="gone" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number of missing Tiles:"
+                    android:id="@+id/yrsNumMiss"
+                    android:layout_below="@+id/yrsNumChip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:visibility="gone" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number of cement crowns to be sealed:"
+                    android:id="@+id/yrsNumCrown"
+                    android:layout_below="@+id/yrsNumMiss"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:visibility="gone" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number of vents to be sealed and painted:"
+                    android:id="@+id/yrsNumPipe"
+                    android:layout_below="@+id/yrsNumCrown"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:visibility="gone" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pull up tile around:"
+                    android:id="@+id/yrsPullTile"
+                    android:layout_below="@+id/yrsNumPipe"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:visibility="gone" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chimneys"
+                    android:id="@+id/yrsNumChim"
+                    android:layout_marginTop="25dp"
+                    android:layout_below="@id/yrsPullTile"
+                    android:visibility="gone" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skylights"
+                    android:id="@+id/yrsNumSky"
+                    android:layout_marginTop="25dp"
+                    android:layout_below="@id/yrsPullTile"
+                    android:layout_toRightOf="@+id/yrsNumChimEdit"
+                    android:visibility="gone" />
+
+
+
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsNumBrokeEdit"
+                    android:layout_toRightOf="@+id/yrsNumBroke"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBottom="@+id/yrsNumBroke"
+                    android:inputType="number"
+                    android:visibility="gone" />
+                <EditText
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsRakeEdit"
+                    android:layout_toRightOf="@+id/yrsRake"
+                    android:layout_alignBottom="@+id/yrsRake"
+                    android:visibility="gone" />
+                <EditText
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsRidgeEdit"
+                    android:layout_marginLeft="37dp"
+                    android:layout_marginStart="37dp"
+                    android:layout_alignBottom="@+id/yrsRake"
+                    android:layout_alignLeft="@+id/yrsRidge"
+                    android:layout_alignStart="@+id/yrsRidge"
+                    android:visibility="gone" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsNumChipEdit"
+                    android:layout_alignBottom="@+id/yrsNumChip"
+                    android:layout_toRightOf="@id/yrsNumChip"
+                    android:visibility="gone" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsNumMissEdit"
+                    android:layout_alignBottom="@+id/yrsNumMiss"
+                    android:layout_toRightOf="@id/yrsNumMiss"
+                    android:visibility="gone" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsNumCrownEdit"
+                    android:layout_alignBottom="@+id/yrsNumCrown"
+                    android:layout_toRightOf="@id/yrsNumCrown"
+                    android:visibility="gone" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsNumPipeEdit"
+                    android:layout_alignBottom="@+id/yrsNumPipe"
+                    android:layout_toRightOf="@id/yrsNumPipe"
+                    android:visibility="gone" />
+                <EditText
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsNumChimEdit"
+                    android:layout_alignBottom="@+id/yrsNumChim"
+                    android:layout_toRightOf="@id/yrsNumChim"
+                    android:visibility="gone" />
+                <EditText
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsNumSkyEdit"
+                    android:layout_alignBottom="@+id/yrsNumChimEdit"
+                    android:layout_toRightOf="@id/yrsNumSky"
+                    android:visibility="gone" />
+
 
                 <!--
                 Insert 5-year tune-up
@@ -110,6 +276,19 @@
                 Insert 20-year tune-up
                 -->
             </RelativeLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:id="@+id/submitButton"
+                android:onClick="sendLeak"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="27dp"
+                android:layout_marginBottom="27dp"
+                android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
+
+
 </RelativeLayout>
