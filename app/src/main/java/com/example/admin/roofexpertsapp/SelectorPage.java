@@ -28,6 +28,13 @@ public class SelectorPage extends ActionBarActivity {
                 R.array.tile_jobs, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        final Spinner typeSpinner = (Spinner) findViewById(R.id.yrsTypeSpinner);
+        ArrayAdapter<CharSequence> typeAdapter = ArrayAdapter.createFromResource(this,
+                R.array.tile_type, android.R.layout.simple_spinner_item);
+        typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        typeSpinner.setAdapter(typeAdapter);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -96,6 +103,81 @@ public class SelectorPage extends ActionBarActivity {
                     EditText edit10 = (EditText) findViewById(R.id.yrsNumSkyEdit);
                     edit10.setVisibility(View.VISIBLE);
 
+                    typeSpinner.setVisibility(View.VISIBLE);
+                    TextView text11 = (TextView) findViewById(R.id.yrsType);
+                    text11.setVisibility(View.VISIBLE);
+
+                    Button button = (Button) findViewById(R.id.submitButton);
+                    button.setVisibility(View.VISIBLE);
+
+                } else if (parent.getItemAtPosition(position).toString().equals("5-Year Tune-Up")) {
+                    TextView text = (TextView) findViewById(R.id.yrsNumBroke);
+                    text.setVisibility(View.VISIBLE);
+                    EditText edit = (EditText) findViewById(R.id.yrsNumBrokeEdit);
+                    edit.setVisibility(View.VISIBLE);
+
+                    TextView text2 = (TextView) findViewById(R.id.yrsRake);
+                    text2.setVisibility(View.VISIBLE);
+                    EditText edit2 = (EditText) findViewById(R.id.yrsRakeEdit);
+                    edit2.setVisibility(View.VISIBLE);
+
+                    TextView text3 = (TextView) findViewById(R.id.yrsRidge);
+                    text3.setVisibility(View.VISIBLE);
+                    EditText edit3 = (EditText) findViewById(R.id.yrsRidgeEdit);
+                    edit3.setVisibility(View.VISIBLE);
+
+                    TextView text4 = (TextView) findViewById(R.id.yrsNumChip);
+                    text4.setVisibility(View.VISIBLE);
+                    EditText edit4 = (EditText) findViewById(R.id.yrsNumChipEdit);
+                    edit4.setVisibility(View.VISIBLE);
+                    TextView text5 = (TextView) findViewById(R.id.yrsNumMiss);
+                    text5.setVisibility(View.VISIBLE);
+                    EditText edit5 = (EditText) findViewById(R.id.yrsNumMissEdit);
+                    edit5.setVisibility(View.VISIBLE);
+                    TextView text6 = (TextView) findViewById(R.id.yrsNumCrown);
+                    text6.setVisibility(View.VISIBLE);
+                    EditText edit6 = (EditText) findViewById(R.id.yrsNumCrownEdit);
+                    edit6.setVisibility(View.VISIBLE);
+                    TextView text7 = (TextView) findViewById(R.id.yrsNumPipe);
+                    text7.setVisibility(View.VISIBLE);
+                    EditText edit7 = (EditText) findViewById(R.id.yrsNumPipeEdit);
+                    edit7.setVisibility(View.VISIBLE);
+                    TextView text8 = (TextView) findViewById(R.id.yrsPullTile);
+                    text8.setVisibility(View.VISIBLE);
+                    TextView text9 = (TextView) findViewById(R.id.yrsNumChim);
+                    text9.setVisibility(View.VISIBLE);
+                    EditText edit9 = (EditText) findViewById(R.id.yrsNumChimEdit);
+                    edit9.setVisibility(View.VISIBLE);
+                    TextView text10 = (TextView) findViewById(R.id.yrsNumSky);
+                    text10.setVisibility(View.VISIBLE);
+                    EditText edit10 = (EditText) findViewById(R.id.yrsNumSkyEdit);
+                    edit10.setVisibility(View.VISIBLE);
+
+                    typeSpinner.setVisibility(View.VISIBLE);
+                    TextView text11 = (TextView) findViewById(R.id.yrsType);
+                    text11.setVisibility(View.VISIBLE);
+
+                    Button button = (Button) findViewById(R.id.submitButton);
+                    button.setVisibility(View.VISIBLE);
+
+
+
+                    TextView text12 = (TextView) findViewById(R.id.yrsNumOldCement);
+                    text12.setVisibility(View.VISIBLE);
+                    EditText edit12 = (EditText) findViewById(R.id.yrsNumOldCementEdit);
+                    edit12.setVisibility(View.VISIBLE);
+                    TextView text13 = (TextView) findViewById(R.id.yrsNum3InDrain);
+                    text13.setVisibility(View.VISIBLE);
+                    EditText edit13 = (EditText) findViewById(R.id.yrsNum3InDrainEdit);
+                    edit13.setVisibility(View.VISIBLE);
+                } else if (parent.getItemAtPosition(position)
+                                            .toString().equals("20-Year Lift and Re-lay")) {
+
+                    TextView text = (TextView) findViewById(R.id.yrsNumSqPull);
+                    text.setVisibility(View.VISIBLE);
+                    EditText edit = (EditText) findViewById(R.id.yrsNumSqPullEdit);
+                    edit.setVisibility(View.VISIBLE);
+
                     Button button = (Button) findViewById(R.id.submitButton);
                     button.setVisibility(View.VISIBLE);
                 }
@@ -147,6 +229,6 @@ public class SelectorPage extends ActionBarActivity {
     }
 
     public void sendLeak(View view) {
-        ;
+
     }
 }
