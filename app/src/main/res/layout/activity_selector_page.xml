@@ -32,7 +32,7 @@
                     android:id="@+id/leakNumTile"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="40dp"
                     android:visibility="gone" />
 
                 <TextView
@@ -71,23 +71,23 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/leakNumAreaEdit"
+                    android:id="@+id/leakLocEdit"
                     android:layout_alignBottom="@+id/leakLoc"
                     android:layout_toRightOf="@+id/leakNumTile"
                     android:visibility="gone"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:inputType="number"/>
+                    android:layout_alignParentEnd="true"/>
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/leakLocEdit"
+                    android:id="@+id/leakNumAreaEdit"
                     android:visibility="gone"
                     android:layout_alignBottom="@+id/leakNumArea"
                     android:layout_toRightOf="@+id/leakNumTile"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    android:inputType="number" />
 
                 <!--
                 Insert 2-year tune-up
@@ -100,9 +100,8 @@
                     android:id="@+id/yrsNumBroke"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="40dp"
                     android:visibility="gone" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -118,12 +117,12 @@
                     android:layout_height="wrap_content"
                     android:text="Ridge:"
                     android:id="@+id/yrsRidge"
-                    android:visibility="gone"
                     android:layout_alignBottom="@+id/yrsRake"
                     android:layout_alignRight="@+id/yrsNumBroke"
                     android:layout_alignEnd="@+id/yrsNumBroke"
                     android:layout_marginRight="19dp"
-                    android:layout_marginEnd="19dp" />
+                    android:layout_marginEnd="19dp"
+                    android:visibility="gone" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -173,13 +172,13 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="25dp"
+                    android:layout_marginBottom="10dp"
                     android:visibility="gone" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Chimneys"
                     android:id="@+id/yrsNumChim"
-                    android:layout_marginTop="25dp"
                     android:layout_below="@id/yrsPullTile"
                     android:visibility="gone" />
                 <TextView
@@ -187,13 +186,26 @@
                     android:layout_height="wrap_content"
                     android:text="Skylights"
                     android:id="@+id/yrsNumSky"
-                    android:layout_marginTop="25dp"
+                    android:layout_alignBottom="@id/yrsNumChim"
                     android:layout_below="@id/yrsPullTile"
                     android:layout_toRightOf="@+id/yrsNumChimEdit"
                     android:visibility="gone" />
-
-
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number of pipes to remove old cement:"
+                    android:id="@+id/yrsNumOldCement"
+                    android:layout_marginTop="25dp"
+                    android:layout_below="@id/yrsNumChim"
+                    android:visibility="gone" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number of 3-in drainage trenches:"
+                    android:id="@+id/yrsNum3InDrain"
+                    android:layout_marginTop="25dp"
+                    android:layout_below="@+id/yrsNumOldCement"
+                    android:visibility="gone" />
 
 
                 <EditText
@@ -212,6 +224,7 @@
                     android:id="@+id/yrsRakeEdit"
                     android:layout_toRightOf="@+id/yrsRake"
                     android:layout_alignBottom="@+id/yrsRake"
+                    android:inputType="number"
                     android:visibility="gone" />
                 <EditText
                     android:layout_width="50dp"
@@ -222,6 +235,7 @@
                     android:layout_alignBottom="@+id/yrsRake"
                     android:layout_alignLeft="@+id/yrsRidge"
                     android:layout_alignStart="@+id/yrsRidge"
+                    android:inputType="number"
                     android:visibility="gone" />
                 <EditText
                     android:layout_width="fill_parent"
@@ -229,6 +243,7 @@
                     android:id="@+id/yrsNumChipEdit"
                     android:layout_alignBottom="@+id/yrsNumChip"
                     android:layout_toRightOf="@id/yrsNumChip"
+                    android:inputType="number"
                     android:visibility="gone" />
                 <EditText
                     android:layout_width="fill_parent"
@@ -236,6 +251,7 @@
                     android:id="@+id/yrsNumMissEdit"
                     android:layout_alignBottom="@+id/yrsNumMiss"
                     android:layout_toRightOf="@id/yrsNumMiss"
+                    android:inputType="number"
                     android:visibility="gone" />
                 <EditText
                     android:layout_width="fill_parent"
@@ -243,6 +259,7 @@
                     android:id="@+id/yrsNumCrownEdit"
                     android:layout_alignBottom="@+id/yrsNumCrown"
                     android:layout_toRightOf="@id/yrsNumCrown"
+                    android:inputType="number"
                     android:visibility="gone" />
                 <EditText
                     android:layout_width="fill_parent"
@@ -250,6 +267,8 @@
                     android:id="@+id/yrsNumPipeEdit"
                     android:layout_alignBottom="@+id/yrsNumPipe"
                     android:layout_toRightOf="@id/yrsNumPipe"
+                    android:inputType="number"
+                    android:nextFocusDown="@+id/yrsNumChimEdit"
                     android:visibility="gone" />
                 <EditText
                     android:layout_width="50dp"
@@ -257,6 +276,8 @@
                     android:id="@+id/yrsNumChimEdit"
                     android:layout_alignBottom="@+id/yrsNumChim"
                     android:layout_toRightOf="@id/yrsNumChim"
+                    android:inputType="number"
+                    android:nextFocusDown="@+id/yrsNumSkyEdit"
                     android:visibility="gone" />
                 <EditText
                     android:layout_width="50dp"
@@ -264,16 +285,65 @@
                     android:id="@+id/yrsNumSkyEdit"
                     android:layout_alignBottom="@+id/yrsNumChimEdit"
                     android:layout_toRightOf="@id/yrsNumSky"
+                    android:inputType="number"
+                    android:visibility="gone" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsNumOldCementEdit"
+                    android:layout_toRightOf="@id/yrsNumOldCement"
+                    android:layout_alignBottom="@id/yrsNumOldCement"
+                    android:inputType="number"
+                    android:visibility="gone" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsNum3InDrainEdit"
+                    android:layout_toRightOf="@id/yrsNum3InDrain"
+                    android:layout_alignBottom="@id/yrsNum3InDrain"
+                    android:inputType="number"
                     android:visibility="gone" />
 
 
-                <!--
-                Insert 5-year tune-up
-                -->
 
-                <!--
-                Insert 20-year tune-up
-                -->
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsTypeSpinner"
+                    android:layout_alignBottom="@+id/yrsRidge"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Type:"
+                    android:id="@+id/yrsType"
+                    android:layout_alignBottom="@+id/yrsRidgeEdit"
+                    android:layout_alignRight="@+id/yrsNumSkyEdit"
+                    android:layout_alignEnd="@+id/yrsNumSkyEdit"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number of squares of tiles to pull up:"
+                    android:id="@+id/yrsNumSqPull"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="40dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yrsNumSqPullEdit"
+                    android:layout_toRightOf="@+id/yrsNumSqPull"
+                    android:layout_alignBottom="@id/yrsNumSqPull"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:inputType="number"/>
+
             </RelativeLayout>
             <Button
                 android:layout_width="wrap_content"
