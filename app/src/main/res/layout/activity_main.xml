@@ -22,7 +22,7 @@
         android:background="@drawable/create"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:onClick="toSelectorPage" />
+        android:onClick="toTabbedPage" />
 
     <Button
         android:id ="@+id/load"
@@ -34,27 +34,5 @@
         android:layout_alignStart="@+id/create"
         android:layout_marginTop="15dp"
         android:onClick="toClientPage"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/create"
-        android:layout_alignStart="@+id/create"
-        android:onClick="toEmailActivity"
-        android:layout_marginBottom="93dp" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="To Personal Info"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button"
-        android:onClick="toPersonalInfo"/>
 
 </RelativeLayout>

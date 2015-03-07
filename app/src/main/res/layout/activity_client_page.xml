@@ -4,12 +4,26 @@
     tools:context="com.example.admin.roofexpertsapp.ClientPage">
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_banner"
+        android:background="@drawable/top_banner" />
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="54dp"
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/abc_action_bar_home_description"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/logo"
+        android:background="@drawable/logo"
+        android:layout_alignRight="@id/top_banner"
+        android:layout_alignEnd="@id/top_banner"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/menu_icon"
+        android:background="@drawable/hamburger_icon"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"/>
 
     <ListView
         android:layout_width="wrap_content"

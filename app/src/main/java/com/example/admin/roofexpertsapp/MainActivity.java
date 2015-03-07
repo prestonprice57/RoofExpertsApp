@@ -38,23 +38,13 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void toEmailActivity(View v) {
-        Intent intent = new Intent (getBaseContext(), EmailActivity.class);
-        startActivity(intent);
-    }
-
-    public void toPersonalInfo(View v) {
-        Intent intent = new Intent (getBaseContext(), PersonalInfo.class);
-        startActivity(intent);
-    }
-
-    public void toSelectorPage(View v) {
-        Intent intent = new Intent (getBaseContext(), SelectorPage.class);
-        startActivity(intent);
-    }
-
     public void toClientPage(View v) {
         Intent intent = new Intent (getBaseContext(), ClientPage.class);
+        startActivity(intent);
+    }
+
+    public void toTabbedPage(View v) {
+        Intent intent = new Intent (getBaseContext(), TabbedView.class);
         startActivity(intent);
     }
 }

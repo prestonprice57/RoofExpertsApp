@@ -32,6 +32,10 @@
             android:name=".PersonalInfo"
             android:label="@string/title_activity_personal_info" >
         </activity>
+        <activity
+            android:name=".TabbedView"
+            android:label="Tabbed View" >
+        </activity>
     </application>
 
 </manifest>
