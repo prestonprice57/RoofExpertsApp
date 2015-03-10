@@ -82,5 +82,10 @@ public class PersonalInfo extends ActionBarActivity {
         final EditText pitchField = (EditText) findViewById(R.id.pitch);
         String pitch = pitchField.getText().toString();
 
+        // Declare DocumentCreator object
+        DocumentCreator documentCreator = new DocumentCreator(this);
+        documentCreator.setData(name, age, address, city, zip, mobilePhone, otherPhone, email,
+                referral, dateReceived, dateScheduled, product, color, pitch);
+        documentCreator.getData();
     }
 }
