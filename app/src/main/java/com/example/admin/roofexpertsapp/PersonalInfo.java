@@ -2,16 +2,22 @@ package com.example.admin.roofexpertsapp;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 
 public class PersonalInfo extends ActionBarActivity {
 
+    private static final String TAG_PERSONAL_INFO = "Personal Activity"; // For logging
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(TAG_PERSONAL_INFO, "Creating PersonalInfo activity");  // Logging
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_info);
     }
@@ -39,8 +45,7 @@ public class PersonalInfo extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void sendInfo() {
-
+    public void data() {
         final EditText nameField = (EditText) findViewById(R.id.name);
         String name = nameField.getText().toString();
 
@@ -84,9 +89,9 @@ public class PersonalInfo extends ActionBarActivity {
         String pitch = pitchField.getText().toString();
 
         // Declare DocumentCreator object
-        DocumentCreator documentCreator = new DocumentCreator(this);
-        documentCreator.setData(name, age, address, city, zip, mobilePhone, otherPhone, email,
-                referral, dateReceived, dateScheduled, product, color, pitch);
-        documentCreator.getData();
+        DocumentCreator documentCreator = new DocumentCreator();
+    }
+    public void sendInfo() {
+
     }
 }

@@ -5,18 +5,25 @@ package com.example.admin.roofexpertsapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
 public class EmailActivity extends Activity {
+
+    private static final String TAG_EMAIL_ACTIVITY = "Email Activity"; // For logging
+
     Button button;
     EditText destinationAddress;
     EditText sbj;
     EditText messageBody;
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+        Log.i(TAG_EMAIL_ACTIVITY, "Creating Email activity");  // Logging
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email);
         sbj = (EditText) findViewById(R.id.subject);

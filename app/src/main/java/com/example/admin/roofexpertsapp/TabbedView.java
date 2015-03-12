@@ -35,6 +35,9 @@ public class TabbedView extends Activity {
         setContentView(R.layout.activity_tabbed_view);
 
         createTabs();
+
+        InfoPageSetterUpper infoSetterUpper = new InfoPageSetterUpper();
+        infoSetterUpper.sendInfo();
         JobPageSetterUpper setterUpper = new JobPageSetterUpper();
         setterUpper.setUp(this);
     }
@@ -241,6 +244,20 @@ public class TabbedView extends Activity {
                 layout.getChildAt(i).setVisibility(View.GONE);
                 submit.setVisibility(View.GONE);
             }
+        }
+    }
+
+    public class InfoPageSetterUpper {
+
+        public void sendInfo() {
+            final Button sendButton = (Button) findViewById(R.id.sendButton);
+            sendButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getBaseContext(), "Send method was clicked", Toast.LENGTH_SHORT).show();
+                    ((TabHost)findViewById(R.id.tabhost)).setCurrentTab(1);
+                }
+            });
         }
     }
 }
