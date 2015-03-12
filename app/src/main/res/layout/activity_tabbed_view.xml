@@ -11,7 +11,8 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:id="@+id/top_banner"
-           android:background="@drawable/top_banner" />
+           android:background="@drawable/top_banner"
+           android:contentDescription="Top Banner"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
