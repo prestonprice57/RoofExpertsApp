@@ -34,41 +34,40 @@ public class TabbedView extends Activity {
         super.onCreate(icicle);
         setContentView(R.layout.activity_tabbed_view);
 
-        SetterUpper setterUpper = new SetterUpper();
-        setterUpper.createTabs();
+        createTabs();
+        JobPageSetterUpper setterUpper = new JobPageSetterUpper();
         setterUpper.setUp(this);
+    }
+
+    public void createTabs() {
+        TabHost tabs=(TabHost)findViewById(R.id.tabhost);
+        tabs.setup();
+
+        TabHost.TabSpec spec1=tabs.newTabSpec("tag1");
+
+        spec1.setIndicator("Personal");
+        spec1.setContent(R.id.tab1);
+        tabs.addTab(spec1);
+
+
+        TabHost.TabSpec spec2=tabs.newTabSpec("tag2");
+
+        spec2.setIndicator("Job");
+        spec2.setContent(R.id.tab2);
+        tabs.addTab(spec2);
+
+        TabHost.TabSpec spec3=tabs.newTabSpec("tag3");
+        spec3.setIndicator("Review");
+        spec3.setContent(R.id.tab3);
+        tabs.addTab(spec3);
     }
 
     /**
      * Created by Takeshi on 3/12/2015.
      */
-    public class SetterUpper {
-
-        public void createTabs() {
-            TabHost tabs=(TabHost)findViewById(R.id.tabhost);
-            tabs.setup();
-
-            TabHost.TabSpec spec1=tabs.newTabSpec("tag1");
-
-            spec1.setIndicator("Personal");
-            spec1.setContent(R.id.tab1);
-            tabs.addTab(spec1);
-
-
-            TabHost.TabSpec spec2=tabs.newTabSpec("tag2");
-
-            spec2.setIndicator("Job");
-            spec2.setContent(R.id.tab2);
-            tabs.addTab(spec2);
-
-            TabHost.TabSpec spec3=tabs.newTabSpec("tag3");
-            spec3.setIndicator("Review");
-            spec3.setContent(R.id.tab3);
-            tabs.addTab(spec3);
-        }
+    public class JobPageSetterUpper {
 
         public void setUp(Context context) {
-
 
             // Initializes the text within the type spinner
             final Spinner typeSpinner = (Spinner) findViewById(R.id.yrsTypeSpinner);
