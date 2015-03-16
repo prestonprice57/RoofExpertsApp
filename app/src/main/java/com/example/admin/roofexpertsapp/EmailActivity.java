@@ -28,7 +28,7 @@ public class EmailActivity extends Activity {
         setContentView(R.layout.activity_email);
         sbj = (EditText) findViewById(R.id.subject);
         messageBody = (EditText) findViewById(R.id.messageBody);
-        button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.emailButton);
         destinationAddress = (EditText) findViewById(R.id.destinationAddress);
         button.setOnClickListener(new OnClickListener() {
             @Override

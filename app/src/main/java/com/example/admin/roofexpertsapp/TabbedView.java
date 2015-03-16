@@ -40,6 +40,8 @@ public class TabbedView extends Activity {
         infoSetterUpper.sendInfo();
         JobPageSetterUpper setterUpper = new JobPageSetterUpper();
         setterUpper.setUp(this);
+        EmailPageSetterUpper emailSetterUpper = new EmailPageSetterUpper();
+        emailSetterUpper.sendInfo(this);
     }
 
     public void createTabs() {
@@ -254,7 +256,21 @@ public class TabbedView extends Activity {
             sendButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getBaseContext(), "Send method was clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Send button was clicked", Toast.LENGTH_SHORT).show();
+                    ((TabHost)findViewById(R.id.tabhost)).setCurrentTab(1);
+                }
+            });
+        }
+    }
+
+    public class EmailPageSetterUpper {
+
+        public void sendInfo(TabbedView tabbedView) {
+            final Button sendButton = (Button) findViewById(R.id.emailButton);
+            sendButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getBaseContext(), "Send button was clicked", Toast.LENGTH_SHORT).show();
                     ((TabHost)findViewById(R.id.tabhost)).setCurrentTab(1);
                 }
             });
