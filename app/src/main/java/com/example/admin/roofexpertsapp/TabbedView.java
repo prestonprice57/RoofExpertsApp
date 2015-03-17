@@ -16,6 +16,7 @@ package com.example.admin.roofexpertsapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -41,7 +42,7 @@ public class TabbedView extends Activity {
         JobPageSetterUpper setterUpper = new JobPageSetterUpper();
         setterUpper.setUp(this);
         EmailPageSetterUpper emailSetterUpper = new EmailPageSetterUpper();
-        emailSetterUpper.sendInfo(this);
+        emailSetterUpper.sendInfo();
     }
 
     public void createTabs() {
@@ -72,8 +73,22 @@ public class TabbedView extends Activity {
      */
     public class JobPageSetterUpper {
 
-        public void setUp(Context context) {
+        private String jobType;
 
+        public void setJobType(String jobType) {
+            this.jobType = jobType;
+        }
+
+        public String getJobType() {
+
+            return jobType;
+        }
+
+        public JobPageSetterUpper() {
+            jobType = "Select a job...";
+
+        }
+        public void setUp(Context context) {
             // Initializes the text within the type spinner
             final Spinner typeSpinner = (Spinner) findViewById(R.id.yrsTypeSpinner);
             ArrayAdapter<CharSequence> typeAdapter = ArrayAdapter.createFromResource(context,
@@ -89,21 +104,25 @@ public class TabbedView extends Activity {
             spinner.setAdapter(adapter);
 
             final Button submitButton = (Button) findViewById(R.id.submitButton);
+
             submitButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getBaseContext(), "Submit Button was clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Submit Button was clicked with Job Type: " + jobType, Toast.LENGTH_SHORT).show();
+                    ((TabHost)findViewById(R.id.tabhost)).setCurrentTab(2);
                 }
             });
+
             // Specifying what the page does for each selection
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if (!parent.getItemAtPosition(position).toString().equals("Select a job...")) {
+                    jobType = parent.getItemAtPosition(position).toString();
+                    if (!jobType.equals("Select a job...")) {
                         clearView();
 
                         submitButton.setVisibility(View.VISIBLE);
-                        if (parent.getItemAtPosition(position).toString().equals("Leak Repair")) {
+                        if (jobType.equals("Leak Repair")) {
                             TextView text = (TextView) findViewById(R.id.leakNumTile);
                             text.setVisibility(View.VISIBLE);
                             EditText edit = (EditText) findViewById(R.id.leakNumTileEdit);
@@ -118,7 +137,7 @@ public class TabbedView extends Activity {
                             text3.setVisibility(View.VISIBLE);
                             EditText edit3 = (EditText) findViewById(R.id.leakLocEdit);
                             edit3.setVisibility(View.VISIBLE);
-                        } else if (parent.getItemAtPosition(position).toString().equals("2-Year Tune-Up")) {
+                        } else if (jobType.equals("2-Year Tune-Up")) {
                             TextView text = (TextView) findViewById(R.id.yrsNumBroke);
                             text.setVisibility(View.VISIBLE);
                             EditText edit = (EditText) findViewById(R.id.yrsNumBrokeEdit);
@@ -165,7 +184,7 @@ public class TabbedView extends Activity {
                             typeSpinner.setVisibility(View.VISIBLE);
                             TextView text11 = (TextView) findViewById(R.id.yrsType);
                             text11.setVisibility(View.VISIBLE);
-                        } else if (parent.getItemAtPosition(position).toString().equals("5-Year Tune-Up")) {
+                        } else if (jobType.equals("5-Year Tune-Up")) {
                             TextView text = (TextView) findViewById(R.id.yrsNumBroke);
                             text.setVisibility(View.VISIBLE);
                             EditText edit = (EditText) findViewById(R.id.yrsNumBrokeEdit);
@@ -264,14 +283,26 @@ public class TabbedView extends Activity {
     }
 
     public class EmailPageSetterUpper {
-
-        public void sendInfo(TabbedView tabbedView) {
+        public void sendInfo() {
             final Button sendButton = (Button) findViewById(R.id.emailButton);
             sendButton.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    Toast.makeText(getBaseContext(), "Send button was clicked", Toast.LENGTH_SHORT).show();
-                    ((TabHost)findViewById(R.id.tabhost)).setCurrentTab(1);
+                public void onClick(View view) {
+                    String subject = ((EditText) findViewById(R.id.subject)).getText().toString();
+                    String message = ((EditText) findViewById(R.id.messageBody)).getText().toString();
+                    String to = ((EditText) findViewById(R.id.destinationAddress)).getText().toString();
+                    Intent emailActivity = new Intent(Intent.ACTION_SEND);
+                    //set up the recipient address
+                    emailActivity.putExtra(Intent.EXTRA_EMAIL, new String[] { to });
+                    //set up the email subject
+                    emailActivity.putExtra(Intent.EXTRA_SUBJECT, subject);
+                    //you can specify cc addresses as well
+                    // email.putExtra(Intent.EXTRA_CC, new String[]{ ...});
+                    // email.putExtra(Intent.EXTRA_BCC, new String[]{ ... });
+                    //set up the message body
+                    emailActivity.putExtra(Intent.EXTRA_TEXT, message);
+                    emailActivity.setType("message/rfc822");
+                    startActivity(Intent.createChooser(emailActivity, "Select your Email Provider :"));
                 }
             });
         }

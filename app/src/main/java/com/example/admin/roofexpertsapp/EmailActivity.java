@@ -26,6 +26,7 @@ public class EmailActivity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email);
+
         sbj = (EditText) findViewById(R.id.subject);
         messageBody = (EditText) findViewById(R.id.messageBody);
         button = (Button) findViewById(R.id.emailButton);
