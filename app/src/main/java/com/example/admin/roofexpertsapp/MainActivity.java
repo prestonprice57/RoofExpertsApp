@@ -7,12 +7,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import org.docx4j.openpackaging.exceptions.Docx4JException;
+
+import java.io.FileNotFoundException;
+
 public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
 
@@ -44,7 +49,21 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void toTabbedPage(View v) {
+
+        DocumentEdit doc = new DocumentEdit();
+        try {
+            doc.getTemplate("template");
+        } catch (Docx4JException e) {
+            e.printStackTrace();
+            System.out.println("Doc4JException");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("File not found");
+
+        }
+
         Intent intent = new Intent (getBaseContext(), TabbedView.class);
         startActivity(intent);
+
     }
 }

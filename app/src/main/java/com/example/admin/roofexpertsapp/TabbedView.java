@@ -82,7 +82,7 @@ public class TabbedView extends Activity {
             typeSpinner.setAdapter(typeAdapter);
 
             // Initializes the text within the job spinner
-            Spinner spinner = (Spinner) findViewById(R.id.job_spinner);
+            final Spinner spinner = (Spinner) findViewById(R.id.job_spinner);
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
                     R.array.tile_jobs, android.R.layout.simple_spinner_item);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -102,6 +102,7 @@ public class TabbedView extends Activity {
                     if (!parent.getItemAtPosition(position).toString().equals("Select a job...")) {
                         clearView();
 
+                        spinner.setVisibility(View.VISIBLE);
                         submitButton.setVisibility(View.VISIBLE);
                         if (parent.getItemAtPosition(position).toString().equals("Leak Repair")) {
                             TextView text = (TextView) findViewById(R.id.leakNumTile);
@@ -240,7 +241,7 @@ public class TabbedView extends Activity {
 
 
         public void clearView() {
-            RelativeLayout layout = (RelativeLayout) findViewById(R.id.form_layout);
+            RelativeLayout layout = (RelativeLayout) findViewById(R.id.tab2);
             Button submit = (Button) findViewById(R.id.submitButton);
             for (int i = 0; i < layout.getChildCount(); i++) {
                 layout.getChildAt(i).setVisibility(View.GONE);

@@ -36,6 +36,14 @@
             android:name=".TabbedView"
             android:label="Tabbed View" >
         </activity>
+        <activity
+            android:name=".Toolbar"
+            android:label="@string/title_activity_toolbar" >
+        </activity>
+        <activity
+            android:name=".ToolbarTabs"
+            android:label="@string/title_activity_toolbar_tabs" >
+        </activity>
     </application>
 
 </manifest>

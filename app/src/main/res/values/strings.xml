@@ -18,7 +18,6 @@
         <item>5-Year Tune-Up</item>
         <item>20-Year Lift and Re-lay</item>
     </string-array>
-
     <string-array name="tile_type">
         <item>Flat</item>
         <item>Villa</item>
@@ -29,5 +28,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_client_page">ClientPage</string>
     <string name="title_activity_personal_info">PersonalInfo</string>
+    <string name="title_activity_toolbar">Toolbar</string>
+    <string name="title_activity_toolbar_tabs">ToolbarTabs</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
 
 </resources>
