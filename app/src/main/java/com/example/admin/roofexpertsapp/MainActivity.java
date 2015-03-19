@@ -53,6 +53,7 @@ public class MainActivity extends ActionBarActivity {
         DocumentEdit doc = new DocumentEdit();
         try {
             doc.getTemplate("template");
+            System.out.println("It opened!");
         } catch (Docx4JException e) {
             e.printStackTrace();
             System.out.println("Doc4JException");

@@ -1,9 +1,9 @@
 package com.example.admin.roofexpertsapp;
 
-import android.widget.Toast;
-
 /**
  * Created by Takeshi on 3/17/2015.
+ *
+ * Description: Creates a class to store the information given by the user to an estimate
  */
 public class TileEstimate {
     private String name;
@@ -21,6 +21,9 @@ public class TileEstimate {
     private String pitch;
     private Job job;
 
+    /**
+     * Description: initializes an estimate with all blank strings
+     */
     public TileEstimate() {
         name = "";
         age = "";

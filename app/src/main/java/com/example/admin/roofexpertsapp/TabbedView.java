@@ -29,6 +29,9 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Creates a tabbed view to hold content in three different tabs while creating an estimate
+ */
 public class TabbedView extends Activity {
     @Override
     public void onCreate(Bundle icicle) {
@@ -45,6 +48,9 @@ public class TabbedView extends Activity {
         emailSetterUpper.sendInfo();
     }
 
+    /**
+     * Description: creates 3 different tabs to display content
+     */
     public void createTabs() {
         TabHost tabs=(TabHost)findViewById(R.id.tabhost);
         tabs.setup();
@@ -84,10 +90,18 @@ public class TabbedView extends Activity {
             return jobType;
         }
 
+        /**
+         * Initializes the jobType
+         */
         public JobPageSetterUpper() {
             jobType = "Select a job...";
 
         }
+
+        /**
+         * Description: sets up the view and sets contents to the spinners
+         * @param context
+         */
         public void setUp(Context context) {
             // Initializes the text within the type spinner
             final Spinner typeSpinner = (Spinner) findViewById(R.id.yrsTypeSpinner);
@@ -115,6 +129,15 @@ public class TabbedView extends Activity {
 
             // Specifying what the page does for each selection
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                /**
+                 * Description: Displays a certain job based on what job type is selected and sets other
+                 *         views to invisible.
+                 *
+                 * @param parent
+                 * @param view
+                 * @param position
+                 * @param id
+                 */
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     jobType = parent.getItemAtPosition(position).toString();
