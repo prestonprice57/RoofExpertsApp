@@ -1,7 +1,7 @@
 package com.example.admin.roofexpertsapp;
 
 // (Palmer) From: http://examples.javacodegeeks.com/android/core/email/android-how-to-send-email/
-// Made by Palmer
+// Made by Palmer Cluff
 
 import android.app.Activity;
 import android.content.Intent;
