@@ -6,18 +6,18 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import org.docx4j.openpackaging.exceptions.Docx4JException;
 
 import java.io.FileNotFoundException;
-
+/**
+ * The main page that the App goes to.
+ */
 public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
 
@@ -43,11 +43,21 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * An onClick method that goes to the client page
+     *
+     * @param v The view that was clicked to call this method
+     */
     public void toClientPage(View v) {
         Intent intent = new Intent (getBaseContext(), ClientPage.class);
         startActivity(intent);
     }
 
+    /**
+     * An onClick method that goes to the tabbed estimate generator page
+     *
+     * @param v The view that was clicked to call this method
+     */
     public void toTabbedPage(View v) {
 
         DocumentEdit doc = new DocumentEdit();
@@ -65,6 +75,5 @@ public class MainActivity extends ActionBarActivity {
 
         Intent intent = new Intent (getBaseContext(), TabbedView.class);
         startActivity(intent);
-
     }
 }

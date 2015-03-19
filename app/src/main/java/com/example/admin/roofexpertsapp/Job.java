@@ -1,9 +1,8 @@
 package com.example.admin.roofexpertsapp;
 
 /**
- * Created by Takeshi on 3/17/2015.
+ * The Job interface containing a method to fill in the elements for each Job
  */
 public interface Job {
-    // The fillout function
     void fillOut();
 }
