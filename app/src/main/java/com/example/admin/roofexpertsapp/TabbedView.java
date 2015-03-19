@@ -240,8 +240,7 @@ public class TabbedView extends Activity {
                             text13.setVisibility(View.VISIBLE);
                             EditText edit13 = (EditText) findViewById(R.id.yrsNum3InDrainEdit);
                             edit13.setVisibility(View.VISIBLE);
-                        } else if (parent.getItemAtPosition(position)
-                                .toString().equals("20-Year Lift and Re-lay")) {
+                        } else if (jobType.equals("20-Year Lift and Re-lay")) {
 
                             TextView text = (TextView) findViewById(R.id.yrsNumSqPull);
                             text.setVisibility(View.VISIBLE);
