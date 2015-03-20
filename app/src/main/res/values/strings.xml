@@ -19,9 +19,11 @@
         <item>20-Year Lift and Re-lay</item>
     </string-array>
     <string-array name="tile_type">
-        <item>Flat</item>
-        <item>Villa</item>
-        <item>"S" Tile</item>
+        <item></item>
+        <item>STD WT</item>
+        <item>LT WT</item>
+        <item>S-CLAY</item>
+        <item>2-PC CLAY</item>
     </string-array>
 
     <string name="title_activity_email">EmailActivity</string>

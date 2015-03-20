@@ -282,11 +282,12 @@ public class TabbedView extends Activity {
 
 
         public void clearView() {
-            RelativeLayout layout = (RelativeLayout) findViewById(R.id.tab2);
+            RelativeLayout layout = (RelativeLayout) findViewById(R.id.form_layout);
             Button submit = (Button) findViewById(R.id.submitButton);
             for (int i = 0; i < layout.getChildCount(); i++) {
                 layout.getChildAt(i).setVisibility(View.GONE);
                 submit.setVisibility(View.GONE);
+                Toast.makeText(getBaseContext(),"clearView working", Toast.LENGTH_SHORT);
             }
         }
     }

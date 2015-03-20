@@ -21,4 +21,8 @@ public class TwoYearTuneUpJob implements Job {
     public void fillOut() {
 
     }
+
+    public float calculate() {
+        return 0;
+    }
 }
