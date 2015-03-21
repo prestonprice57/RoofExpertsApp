@@ -18,8 +18,18 @@
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:id="@+id/job_spinner" />
 
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/type_spinner"
+                android:layout_alignBottom="@+id/job_spinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:visibility="visible" />
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,7 +45,7 @@
                     android:id="@+id/leakNumTile"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:visibility="gone" />
 
                 <TextView
@@ -103,7 +113,7 @@
                     android:id="@+id/yrsNumBroke"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:visibility="gone" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -307,27 +317,6 @@
                     android:inputType="number"
                     android:visibility="gone" />
 
-
-
-                <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/yrsTypeSpinner"
-                    android:layout_alignBottom="@+id/yrsRidge"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Type:"
-                    android:id="@+id/yrsType"
-                    android:layout_alignBottom="@+id/yrsRidgeEdit"
-                    android:layout_alignRight="@+id/yrsNumSkyEdit"
-                    android:layout_alignEnd="@+id/yrsNumSkyEdit"
-                    android:visibility="gone" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -335,7 +324,7 @@
                     android:id="@+id/yrsNumSqPull"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:visibility="gone" />
 
                 <EditText

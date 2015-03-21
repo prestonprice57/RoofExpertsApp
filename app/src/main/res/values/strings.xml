@@ -19,7 +19,7 @@
         <item>20-Year Lift and Re-lay</item>
     </string-array>
     <string-array name="tile_type">
-        <item></item>
+        <item>Select a type of material...</item>
         <item>STD WT</item>
         <item>LT WT</item>
         <item>S-CLAY</item>

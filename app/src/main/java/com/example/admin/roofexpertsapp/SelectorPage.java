@@ -29,7 +29,7 @@ public class SelectorPage extends ActionBarActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        final Spinner typeSpinner = (Spinner) findViewById(R.id.yrsTypeSpinner);
+        final Spinner typeSpinner = (Spinner) findViewById(R.id.type_spinner);
         ArrayAdapter<CharSequence> typeAdapter = ArrayAdapter.createFromResource(this,
                 R.array.tile_type, android.R.layout.simple_spinner_item);
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -103,9 +103,6 @@ public class SelectorPage extends ActionBarActivity {
                     EditText edit10 = (EditText) findViewById(R.id.yrsNumSkyEdit);
                     edit10.setVisibility(View.VISIBLE);
 
-                    typeSpinner.setVisibility(View.VISIBLE);
-                    TextView text11 = (TextView) findViewById(R.id.yrsType);
-                    text11.setVisibility(View.VISIBLE);
 
                     Button button = (Button) findViewById(R.id.submitButton);
                     button.setVisibility(View.VISIBLE);
@@ -152,10 +149,6 @@ public class SelectorPage extends ActionBarActivity {
                     text10.setVisibility(View.VISIBLE);
                     EditText edit10 = (EditText) findViewById(R.id.yrsNumSkyEdit);
                     edit10.setVisibility(View.VISIBLE);
-
-                    typeSpinner.setVisibility(View.VISIBLE);
-                    TextView text11 = (TextView) findViewById(R.id.yrsType);
-                    text11.setVisibility(View.VISIBLE);
 
                     Button button = (Button) findViewById(R.id.submitButton);
                     button.setVisibility(View.VISIBLE);

@@ -104,7 +104,7 @@ public class TabbedView extends Activity {
          */
         public void setUp(Context context) {
             // Initializes the text within the type spinner
-            final Spinner typeSpinner = (Spinner) findViewById(R.id.yrsTypeSpinner);
+            final Spinner typeSpinner = (Spinner) findViewById(R.id.type_spinner);
             ArrayAdapter<CharSequence> typeAdapter = ArrayAdapter.createFromResource(context,
                     R.array.tile_type, android.R.layout.simple_spinner_item);
             typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -205,9 +205,6 @@ public class TabbedView extends Activity {
                             EditText edit10 = (EditText) findViewById(R.id.yrsNumSkyEdit);
                             edit10.setVisibility(View.VISIBLE);
 
-                            typeSpinner.setVisibility(View.VISIBLE);
-                            TextView text11 = (TextView) findViewById(R.id.yrsType);
-                            text11.setVisibility(View.VISIBLE);
                         } else if (jobType.equals("5-Year Tune-Up")) {
                             TextView text = (TextView) findViewById(R.id.yrsNumBroke);
                             text.setVisibility(View.VISIBLE);
@@ -251,10 +248,6 @@ public class TabbedView extends Activity {
                             EditText edit10 = (EditText) findViewById(R.id.yrsNumSkyEdit);
                             edit10.setVisibility(View.VISIBLE);
 
-                            typeSpinner.setVisibility(View.VISIBLE);
-                            TextView text11 = (TextView) findViewById(R.id.yrsType);
-                            text11.setVisibility(View.VISIBLE);
-
                             TextView text12 = (TextView) findViewById(R.id.yrsNumOldCement);
                             text12.setVisibility(View.VISIBLE);
                             EditText edit12 = (EditText) findViewById(R.id.yrsNumOldCementEdit);
@@ -286,9 +279,7 @@ public class TabbedView extends Activity {
             Button submit = (Button) findViewById(R.id.submitButton);
             for (int i = 0; i < layout.getChildCount(); i++) {
                 layout.getChildAt(i).setVisibility(View.GONE);
-                submit.setVisibility(View.GONE);
-                Toast.makeText(getBaseContext(),"clearView working", Toast.LENGTH_SHORT);
-            }
+                submit.setVisibility(View.GONE);}
         }
     }
 
