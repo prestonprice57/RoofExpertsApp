@@ -297,7 +297,22 @@ public class TabbedView extends Activity {
         }
     }
 
+    /*(Palmer) This might be useful:
+    // http://www.myandroidsolutions.com/2012/07/19/add-image-to-email-intent-in-android/
+    // build a email sending intent
+    Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+    emailIntent.setType("image/png");
+    // set the email subject
+    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "email subject");
+    // set the email image path for the attachment
+    emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + mEmailImagePath));
+    // set the body of the email
+    emailIntent.putExtra(Intent.EXTRA_TEXT, "some text message");
+      */
     public class EmailPageSetterUpper {
+
+        private static final int PICK_FROM_GALLERY = 101;
+
         public void sendInfo() {
             final Button sendButton = (Button) findViewById(R.id.emailButton);
             sendButton.setOnClickListener(new View.OnClickListener() {
