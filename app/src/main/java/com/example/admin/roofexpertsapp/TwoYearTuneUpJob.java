@@ -15,13 +15,6 @@ public class TwoYearTuneUpJob implements Job {
     private int numChim;
     private int numSky;
 
-    /**
-     * Description: Fills out form of the Two Year Tune Up
-     */
-    public void fillOut() {
-
-    }
-
     public float calculate() {
         return 0;
     }

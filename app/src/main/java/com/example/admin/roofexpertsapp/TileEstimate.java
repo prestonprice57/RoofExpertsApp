@@ -17,6 +17,7 @@ public class TileEstimate {
     private String referral;
     private String dateReceived;
     private String dateScheduled;
+    private String product;
     private String color;
     private String pitch;
     private Job job;
@@ -36,6 +37,7 @@ public class TileEstimate {
         referral = "";
         dateReceived = "";
         dateScheduled = "";
+        product = "";
         color = "";
         pitch = "";
     }
@@ -126,6 +128,14 @@ public class TileEstimate {
 
     public void setDateScheduled(String dateScheduled) {
         this.dateScheduled = dateScheduled;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
     }
 
     public String getColor() {

@@ -349,6 +349,11 @@
                 android:layout_marginTop="27dp"
                 android:layout_marginBottom="27dp"
                 android:visibility="gone" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@id/submitButton"
+                android:id="@+id/display"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

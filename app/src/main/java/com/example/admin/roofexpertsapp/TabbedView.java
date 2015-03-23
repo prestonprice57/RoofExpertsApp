@@ -28,17 +28,20 @@ import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 /**
  * Creates a tabbed view to hold content in three different tabs while creating an estimate
  */
 public class TabbedView extends Activity {
+    private TileEstimate estimate;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_tabbed_view);
-
         createTabs();
+        estimate = new TileEstimate();
 
         InfoPageSetterUpper infoSetterUpper = new InfoPageSetterUpper();
         infoSetterUpper.sendInfo();
@@ -74,19 +77,48 @@ public class TabbedView extends Activity {
         tabs.addTab(spec3);
     }
 
+    public class InfoPageSetterUpper {
+
+        public void sendInfo() {
+            final Button sendButton = (Button) findViewById(R.id.sendButton);
+            sendButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    estimate.setName(((EditText)findViewById(R.id.name)).getText().toString());
+                    estimate.setAge(((EditText)findViewById(R.id.age)).getText().toString());
+                    estimate.setAddress(((EditText)findViewById(R.id.address)).getText().toString());
+                    estimate.setCity(((EditText)findViewById(R.id.city)).getText().toString());
+                    estimate.setZip(((EditText)findViewById(R.id.zip)).getText().toString());
+                    estimate.setMobilePhone(((EditText)findViewById(R.id.mobilePhone)).getText().toString());
+                    estimate.setOtherPhone(((EditText)findViewById(R.id.otherPhone)).getText().toString());
+                    estimate.setEmail(((EditText)findViewById(R.id.email)).getText().toString());
+                    estimate.setReferral(((EditText)findViewById(R.id.referral)).getText().toString());
+                    estimate.setDateReceived(((EditText)findViewById(R.id.dateReceived)).getText().toString());
+                    estimate.setDateScheduled(((EditText)findViewById(R.id.dateScheduled)).getText().toString());
+                    estimate.setProduct(((EditText)findViewById(R.id.product)).getText().toString());
+                    estimate.setColor(((EditText)findViewById(R.id.color)).getText().toString());
+                    estimate.setPitch(((EditText)findViewById(R.id.pitch)).getText().toString());
+
+                    Toast.makeText(getBaseContext(), "Send button was clicked", Toast.LENGTH_SHORT).show();
+                    ((TabHost)findViewById(R.id.tabhost)).setCurrentTab(1);
+                }
+            });
+        }
+    }
+
     /**
      * Created by Takeshi on 3/12/2015.
      */
     public class JobPageSetterUpper {
 
         private String jobType;
+        private String matType;
 
         public void setJobType(String jobType) {
             this.jobType = jobType;
         }
 
         public String getJobType() {
-
             return jobType;
         }
 
@@ -95,7 +127,6 @@ public class TabbedView extends Activity {
          */
         public JobPageSetterUpper() {
             jobType = "Select a job...";
-
         }
 
         /**
@@ -110,6 +141,15 @@ public class TabbedView extends Activity {
             typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             typeSpinner.setAdapter(typeAdapter);
 
+            typeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    matType = parent.getItemAtPosition(position).toString();
+                }
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                }
+            });
             // Initializes the text within the job spinner
             final Spinner spinner = (Spinner) findViewById(R.id.job_spinner);
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
@@ -122,7 +162,26 @@ public class TabbedView extends Activity {
             submitButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getBaseContext(), "Submit Button was clicked with Job Type: " + jobType, Toast.LENGTH_SHORT).show();
+                    switch (jobType) {
+                        case "Leak Repair":
+                            int amount = Integer.parseInt(((EditText)
+                                    findViewById(R.id.leakNumTileEdit)).getText().toString());
+                            ((LeakRepairJob)estimate.getJob()).setNumTilePullUp(amount);
+                            ((LeakRepairJob)estimate.getJob()).setType(matType);
+                            ((TextView)findViewById(R.id.display)).setText("amount: " + Float.toString(((LeakRepairJob) estimate.getJob()).getNumTilePullUp())
+                                    + "\ntype: " + ((LeakRepairJob) estimate.getJob()).getType()
+                                    + "\nprice: $" + ((LeakRepairJob) estimate.getJob()).pricer(amount)
+                                    + "\ntotal: $" + Float.toString(estimate.getJob().calculate()));
+                            break;
+                        case "2-Year Tune-Up":
+                            break;
+                        case "5-Year Tune-Up":
+                            break;
+                        case "20-Year Lift and Re-lay":
+                            break;
+                    }
+                    Toast.makeText(getBaseContext(), "Submit Button was clicked with Job Type: " +
+                        jobType, Toast.LENGTH_SHORT).show();
                     ((TabHost)findViewById(R.id.tabhost)).setCurrentTab(2);
                 }
             });
@@ -147,6 +206,9 @@ public class TabbedView extends Activity {
                         spinner.setVisibility(View.VISIBLE);
                         submitButton.setVisibility(View.VISIBLE);
                         if (jobType.equals("Leak Repair")) {
+                            LeakRepairJob job = new LeakRepairJob();
+                            estimate.setJob(job);
+
                             TextView text = (TextView) findViewById(R.id.leakNumTile);
                             text.setVisibility(View.VISIBLE);
                             EditText edit = (EditText) findViewById(R.id.leakNumTileEdit);
@@ -265,10 +327,8 @@ public class TabbedView extends Activity {
                         }
                     }
                 }
-
                 @Override
                 public void onNothingSelected(AdapterView<?> parent) {
-
                 }
             });
         }
@@ -283,19 +343,7 @@ public class TabbedView extends Activity {
         }
     }
 
-    public class InfoPageSetterUpper {
 
-        public void sendInfo() {
-            final Button sendButton = (Button) findViewById(R.id.sendButton);
-            sendButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(getBaseContext(), "Send button was clicked", Toast.LENGTH_SHORT).show();
-                    ((TabHost)findViewById(R.id.tabhost)).setCurrentTab(1);
-                }
-            });
-        }
-    }
 
     public class EmailPageSetterUpper {
         public void sendInfo() {
