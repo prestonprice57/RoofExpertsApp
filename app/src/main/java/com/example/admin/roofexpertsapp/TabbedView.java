@@ -17,7 +17,9 @@ package com.example.admin.roofexpertsapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -359,7 +361,7 @@ public class TabbedView extends Activity {
       */
     public class EmailPageSetterUpper {
 
-        private static final int PICK_FROM_GALLERY = 101;
+        private static final int PICK_FROM_FILE = 101;
 
         public void sendInfo() {
             final Button sendButton = (Button) findViewById(R.id.emailButton);
@@ -369,7 +371,11 @@ public class TabbedView extends Activity {
                     String subject = ((EditText) findViewById(R.id.subject)).getText().toString();
                     String message = ((EditText) findViewById(R.id.messageBody)).getText().toString();
                     String to = ((EditText) findViewById(R.id.destinationAddress)).getText().toString();
-                    Intent emailActivity = new Intent(Intent.ACTION_SEND);
+                    Intent emailActivity = new Intent(android.content.Intent.ACTION_SEND);
+                    emailActivity.setType("image/png");
+                    // set the email image path for the attachment
+                    openFile();
+                    //emailActivity.putExtra(Intent.EXTRA_STREAM,Uri.parse("file://" + Environment.getExternalStorageDirectory().getPath()+ "/DCIM/Camera/1423350430843.jpg"));
                     //set up the recipient address
                     emailActivity.putExtra(Intent.EXTRA_EMAIL, new String[] { to });
                     //set up the email subject
@@ -384,5 +390,17 @@ public class TabbedView extends Activity {
                 }
             });
         }
+
+
+        public void openFile() {
+            Intent intent = new Intent();
+            intent.setType("application/pdf");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            intent.putExtra("return-data", true);
+            startActivityForResult(
+                    Intent.createChooser(intent, "Complete action using"),
+                    PICK_FROM_FILE);
+        }
+
     }
 }
