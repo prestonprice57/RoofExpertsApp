@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The class containing the data for each Leak Repair Job
+ * Created by Takeshi on 3/24/2015.
  */
-public class LeakRepairJob implements Job {
+public class TwentyYearLiftJob implements Job{
     private String type;
-    private int numTilePullUp;
-    private float jobTotal;
+    private int numTilePullUp;    private float jobTotal;
     private List<float[]> prices;
 
 
@@ -41,7 +40,7 @@ public class LeakRepairJob implements Job {
         this.numTilePullUp = numTilePullUp;
     }
 
-    public LeakRepairJob() {
+    public TwentyYearLiftJob() {
         jobTotal = 0;
 
         prices = new ArrayList<>();
@@ -74,10 +73,13 @@ public class LeakRepairJob implements Job {
         }
         return price;
     }
+
     public float calculate() {
+        System.err.println("amount: " + numTilePullUp);
         float price = pricer(numTilePullUp);
         float total = price * numTilePullUp;
         jobTotal = total;
+        System.err.println("total: " + jobTotal);
         return total;
     }
 }

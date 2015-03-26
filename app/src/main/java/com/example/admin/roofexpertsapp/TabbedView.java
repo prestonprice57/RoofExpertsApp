@@ -170,16 +170,30 @@ public class TabbedView extends Activity {
                                     findViewById(R.id.leakNumTileEdit)).getText().toString());
                             ((LeakRepairJob)estimate.getJob()).setNumTilePullUp(amount);
                             ((LeakRepairJob)estimate.getJob()).setType(matType);
-                            ((TextView)findViewById(R.id.display)).setText("amount: " + Float.toString(((LeakRepairJob) estimate.getJob()).getNumTilePullUp())
+                            estimate.getJob().calculate();
+                            ((TextView)findViewById(R.id.display)).setText(
+                                    "job: " + jobType
+                                    + "\namount: " + Float.toString(((LeakRepairJob) estimate.getJob()).getNumTilePullUp())
                                     + "\ntype: " + ((LeakRepairJob) estimate.getJob()).getType()
                                     + "\nprice: $" + ((LeakRepairJob) estimate.getJob()).pricer(amount)
-                                    + "\ntotal: $" + Float.toString(estimate.getJob().calculate()));
+                                    + "\ntotal: $" + Float.toString(((LeakRepairJob) estimate.getJob()).getJobTotal()));
                             break;
                         case "2-Year Tune-Up":
                             break;
                         case "5-Year Tune-Up":
                             break;
                         case "20-Year Lift and Re-lay":
+                            int amount20 = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumSqPullEdit)).getText().toString());
+                            ((TwentyYearLiftJob)estimate.getJob()).setNumTilePullUp(amount20);
+                            ((TwentyYearLiftJob)estimate.getJob()).setType(matType);
+                            estimate.getJob().calculate();
+                            ((TextView)findViewById(R.id.display)).setText(
+                                      "job: " + jobType
+                                    + "\namount: " + Float.toString(((TwentyYearLiftJob) estimate.getJob()).getNumTilePullUp())
+                                    + "\ntype: " + ((TwentyYearLiftJob) estimate.getJob()).getType()
+                                    + "\nprice: $" + ((TwentyYearLiftJob) estimate.getJob()).pricer(amount20)
+                                    + "\ntotal: $" + Float.toString(((TwentyYearLiftJob) estimate.getJob()).getJobTotal()));
                             break;
                     }
                     Toast.makeText(getBaseContext(), "Submit Button was clicked with Job Type: " +
@@ -205,7 +219,6 @@ public class TabbedView extends Activity {
                     if (!jobType.equals("Select a job...")) {
                         clearView();
 
-                        spinner.setVisibility(View.VISIBLE);
                         submitButton.setVisibility(View.VISIBLE);
                         if (jobType.equals("Leak Repair")) {
                             LeakRepairJob job = new LeakRepairJob();
@@ -321,6 +334,8 @@ public class TabbedView extends Activity {
                             EditText edit13 = (EditText) findViewById(R.id.yrsNum3InDrainEdit);
                             edit13.setVisibility(View.VISIBLE);
                         } else if (jobType.equals("20-Year Lift and Re-lay")) {
+                            TwentyYearLiftJob job = new TwentyYearLiftJob();
+                            estimate.setJob(job);
 
                             TextView text = (TextView) findViewById(R.id.yrsNumSqPull);
                             text.setVisibility(View.VISIBLE);
