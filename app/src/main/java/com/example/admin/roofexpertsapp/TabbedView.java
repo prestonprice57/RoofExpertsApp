@@ -374,7 +374,7 @@ public class TabbedView extends Activity {
                     Intent emailActivity = new Intent(android.content.Intent.ACTION_SEND);
                     emailActivity.setType("image/png");
                     // set the email image path for the attachment
-                    openFile();
+                    //openFile(); // For attaching
                     //emailActivity.putExtra(Intent.EXTRA_STREAM,Uri.parse("file://" + Environment.getExternalStorageDirectory().getPath()+ "/DCIM/Camera/1423350430843.jpg"));
                     //set up the recipient address
                     emailActivity.putExtra(Intent.EXTRA_EMAIL, new String[] { to });
@@ -401,6 +401,5 @@ public class TabbedView extends Activity {
                     Intent.createChooser(intent, "Complete action using"),
                     PICK_FROM_FILE);
         }
-
     }
 }
