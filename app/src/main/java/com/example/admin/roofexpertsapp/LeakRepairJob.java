@@ -27,7 +27,6 @@ public class LeakRepairJob implements Job {
         return type;
     }
 
-
     public void setType(String type) {
         this.type = type;
     }

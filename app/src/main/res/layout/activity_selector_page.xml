@@ -149,7 +149,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Number of missing Tiles:"
+                    android:text="Number of misplaced Tiles:"
                     android:id="@+id/yrsNumMiss"
                     android:layout_below="@+id/yrsNumChip"
                     android:layout_alignParentLeft="true"
@@ -206,7 +206,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Number of pipes to remove old cement:"
+                    android:text="Number of pipes to replace:"
                     android:id="@+id/yrsNumOldCement"
                     android:layout_marginTop="25dp"
                     android:layout_below="@id/yrsNumChim"
@@ -214,7 +214,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Number of 3-in drainage trenches:"
+                    android:text="Number of feet of 3-in drainage trenches:"
                     android:id="@+id/yrsNum3InDrain"
                     android:layout_marginTop="25dp"
                     android:layout_below="@+id/yrsNumOldCement"
