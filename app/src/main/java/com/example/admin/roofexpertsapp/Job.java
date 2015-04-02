@@ -5,4 +5,5 @@ package com.example.admin.roofexpertsapp;
  */
 public interface Job {
     float calculate();
+    String outputXML();
 }

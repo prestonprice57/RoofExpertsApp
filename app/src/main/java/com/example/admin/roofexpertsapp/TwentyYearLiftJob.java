@@ -82,4 +82,9 @@ public class TwentyYearLiftJob implements Job{
         System.err.println("total: " + jobTotal);
         return total;
     }
+
+    @Override
+    public String outputXML() {
+        return null;
+    }
 }
