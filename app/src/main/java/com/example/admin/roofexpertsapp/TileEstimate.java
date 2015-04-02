@@ -1,5 +1,13 @@
 package com.example.admin.roofexpertsapp;
 
+import android.content.Context;
+import android.widget.ArrayAdapter;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+
 /**
  * Created by Takeshi on 3/17/2015.
  *
@@ -162,18 +170,31 @@ public class TileEstimate {
         this.job = job;
     }
 
-    public void setJobType(String jobType) {
-        /*
-        The logic to specify which type of job will be instantiated
+    public void saveEstimate(Context context) {
 
-        if (jobType.equals("Leak Repair")) {
-            job = new LeakRepairJob();
-        } else if (jobType.equals("2-Year Tune-Up")) {
-            job = new TwoYearTuneUpJob();
-        } else if (jobType.equals("5-Year Tune-Up")) {
-            job = new FiveYearTuneUpJob();
-        } else if (jobType.equals("20-Year Lift and Re-lay")) {
-            job = new TwentyYearLiftJob();
-        }*/
+        System.out.println("In SaveEstimate");
+        try {
+            FileOutputStream fos = context.openFileOutput("hello.txt", Context.MODE_PRIVATE);
+            fos.write("<estimate>\n".getBytes());
+            fos.write(("\t<name>" + name + "</name>\n").getBytes());
+            fos.write(("\t<age>" + age + "</age>\n").getBytes());
+            fos.write(("\t<address>" + address + "</address>\n").getBytes());
+            fos.write(("\t<city>" + city + "</city>\n").getBytes());
+            fos.write(("\t<zip>" + zip + "</zip>\n").getBytes());
+            fos.write(("\t<mobilePhone>" + mobilePhone + "</mobilePhone>\n").getBytes());
+            fos.write(("\t<otherPhone>" + otherPhone + "</otherPhone>\n").getBytes());
+            fos.write(("\t<email>" + email + "</email>\n").getBytes());
+            fos.write(("\t<referral>" + referral + "</referral>\n").getBytes());
+            fos.write(("\t<dateReceived>" + dateReceived + "</dateReceived>\n").getBytes());
+            fos.write(("\t<dateScheduled>" + dateScheduled + "</dateScheduled>\n").getBytes());
+            fos.write(("\t<product>" + product + "</product>\n").getBytes());
+            fos.write(("\t<color>" + color + "</color>\n").getBytes());
+            fos.write(("\t<pitch>" + pitch + "</pitch>\n").getBytes());
+            fos.close();
+
+        } catch (Exception e) {
+            System.err.println("Error writing file");
+            e.printStackTrace();
+        }
     }
 }

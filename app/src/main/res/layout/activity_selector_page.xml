@@ -342,13 +342,23 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Submit"
+                android:text="Calculate"
                 android:id="@+id/submitButton"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="27dp"
                 android:layout_marginBottom="27dp"
                 android:visibility="gone" />
+            <!--<Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:id="@+id/submitButton"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="27dp"
+                android:layout_marginBottom="27dp"
+                android:visibility="gone" />-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

@@ -168,9 +168,18 @@ public class TabbedView extends Activity {
                         case "Leak Repair":
                             int amount = Integer.parseInt(((EditText)
                                     findViewById(R.id.leakNumTileEdit)).getText().toString());
-                            ((LeakRepairJob)estimate.getJob()).setNumTilePullUp(amount);
-                            ((LeakRepairJob)estimate.getJob()).setType(matType);
+                            int numLoc =Integer.parseInt(((EditText)
+                                    findViewById(R.id.leakNumAreaEdit)).getText().toString());
+                            System.out.println(matType + " " + amount + " " + numLoc);
+                            estimate.setJob(new LeakRepairJob(matType, amount, numLoc));
+                            System.out.println(((LeakRepairJob) estimate.getJob()).getNumLocations());
+                            System.out.println("job: " + jobType
+                                            + "\namount: " + Float.toString(((LeakRepairJob) estimate.getJob()).getNumTilePullUp())
+                                            + "\ntype: " + ((LeakRepairJob) estimate.getJob()).getType()
+                                            + "\nprice: $" + ((LeakRepairJob) estimate.getJob()).pricer(amount)
+                                            + "\ntotal: $" + Float.toString(((LeakRepairJob) estimate.getJob()).getJobTotal()));
                             estimate.getJob().calculate();
+                            estimate.saveEstimate(getBaseContext());
                             ((TextView)findViewById(R.id.display)).setText(
                                     "job: " + jobType
                                     + "\namount: " + Float.toString(((LeakRepairJob) estimate.getJob()).getNumTilePullUp())
@@ -221,9 +230,6 @@ public class TabbedView extends Activity {
 
                         submitButton.setVisibility(View.VISIBLE);
                         if (jobType.equals("Leak Repair")) {
-                            LeakRepairJob job = new LeakRepairJob();
-                            estimate.setJob(job);
-
                             TextView text = (TextView) findViewById(R.id.leakNumTile);
                             text.setVisibility(View.VISIBLE);
                             EditText edit = (EditText) findViewById(R.id.leakNumTileEdit);

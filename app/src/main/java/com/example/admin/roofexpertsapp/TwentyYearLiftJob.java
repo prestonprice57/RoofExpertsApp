@@ -45,14 +45,14 @@ public class TwentyYearLiftJob implements Job{
 
         prices = new ArrayList<>();
 
-        prices.add(new float[] {10, 12, 12, 18});
-        prices.add(new float[] {7, 10, 10, 14});
+        prices.add(new float[] {600, 650, 650, 720});
+        prices.add(new float[] {480, 540, 540, 600});
     }
 
     public float pricer(int amount) {
         float price = 0;
-        float [] tempPrice = new float[4];
-        if (amount < 400) {
+        float [] tempPrice;
+        if (amount < 12) {
             tempPrice = prices.get(0);
         } else {
             tempPrice = prices.get(1);

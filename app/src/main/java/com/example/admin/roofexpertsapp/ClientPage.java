@@ -4,6 +4,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import java.io.FileInputStream;
 
 
 public class ClientPage extends ActionBarActivity {
@@ -35,5 +38,25 @@ public class ClientPage extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void load(View view) {
+        try {
+            FileInputStream fin = openFileInput("hello.txt");
+            int c;
+            String temp="";
+            while( (c = fin.read()) != -1) {
+                temp = temp + Character.toString((char)c);
+            }
+            String[] tempArray = temp.split("\n");
+
+            for (String tempS : tempArray) {
+                System.out.println(tempS);
+            }
+
+        } catch (Exception e) {
+            System.err.println("Error reading file");
+            e.printStackTrace();
+        }
     }
 }
