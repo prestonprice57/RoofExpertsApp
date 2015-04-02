@@ -167,6 +167,11 @@ public class FiveYearTuneUpJob implements Job{
         return total;
     }
 
+    @Override
+    public String outputXML() {
+        return null;
+    }
+
     public void setNumTileBroken(int numTileBroken) {
         this.numTileBroken = numTileBroken;
     }

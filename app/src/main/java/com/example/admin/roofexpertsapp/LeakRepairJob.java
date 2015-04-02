@@ -79,4 +79,9 @@ public class LeakRepairJob implements Job {
         jobTotal = total;
         return total;
     }
+
+    @Override
+    public String outputXML() {
+        return null;
+    }
 }
