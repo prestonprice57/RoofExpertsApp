@@ -15,6 +15,7 @@ public class TwoYearTuneUpJob implements Job {
     private int numTileMisplaced;
     private int numCrown;
     private int numPipe;
+    private float jobTotal;
 
     public String getType() {
         return type;
@@ -35,6 +36,7 @@ public class TwoYearTuneUpJob implements Job {
         numPipe = 0;
         numChim = 0;
         numSky = 0;
+        jobTotal = 0;
         prices = new ArrayList<>();
 
         //Broken tile cost
@@ -135,6 +137,8 @@ public class TwoYearTuneUpJob implements Job {
             total = 795;
         }
 
+        jobTotal = total;
+
         return total;
     }
 
@@ -170,5 +174,7 @@ public class TwoYearTuneUpJob implements Job {
     public void setNumSky(int numSky) {
         this.numSky = numSky;
     }
-
+    public float getJobTotal() {
+        return jobTotal;
+    }
 }

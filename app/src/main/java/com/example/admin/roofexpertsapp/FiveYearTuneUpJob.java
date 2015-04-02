@@ -12,6 +12,8 @@ public class FiveYearTuneUpJob implements Job{
     private int ridge;
     private String type;
 
+    private float jobTotal;
+
     public String getType() {
         return type;
     }
@@ -39,6 +41,7 @@ public class FiveYearTuneUpJob implements Job{
         numSky = 0;
         numPipesReplaced = 0;
         numTrench = 0;
+        jobTotal = 0;
 
         prices = new ArrayList<>();
 
@@ -159,6 +162,8 @@ public class FiveYearTuneUpJob implements Job{
             total = 795;
         }
 
+        jobTotal = total;
+
         return total;
     }
 
@@ -202,15 +207,15 @@ public class FiveYearTuneUpJob implements Job{
         this.numSky = numSky;
     }
 
-    public void setPrices(List<float[]> prices) {
-        this.prices = prices;
-    }
-
     public void setNumPipesReplaced(int numPipesReplaced) {
         this.numPipesReplaced = numPipesReplaced;
     }
 
     public void setNumTrench(int numTrench) {
         this.numTrench = numTrench;
+    }
+
+    public float getJobTotal() {
+        return jobTotal;
     }
 }
