@@ -6,9 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import org.docx4j.openpackaging.exceptions.Docx4JException;
 
-import java.io.FileNotFoundException;
 /**
  * The main page that the App goes to.
  */
@@ -59,20 +57,6 @@ public class MainActivity extends ActionBarActivity {
      * @param v The view that was clicked to call this method
      */
     public void toTabbedPage(View v) {
-
-        DocumentEdit doc = new DocumentEdit();
-        try {
-            doc.getTemplate("template");
-            System.out.println("It opened!");
-        } catch (Docx4JException e) {
-            e.printStackTrace();
-            System.out.println("Doc4JException");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("File not found");
-
-        }
-
         Intent intent = new Intent (getBaseContext(), TabbedView.class);
         startActivity(intent);
     }

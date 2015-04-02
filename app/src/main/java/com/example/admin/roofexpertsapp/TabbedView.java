@@ -17,9 +17,7 @@ package com.example.admin.roofexpertsapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,7 +28,6 @@ import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.SharedPreferences;
 
 /**
  * Creates a tabbed view to hold content in three different tabs while creating an estimate
@@ -188,8 +185,80 @@ public class TabbedView extends Activity {
                                     + "\ntotal: $" + Float.toString(((LeakRepairJob) estimate.getJob()).getJobTotal()));
                             break;
                         case "2-Year Tune-Up":
+                            int numTileBroken = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumBrokeEdit)).getText().toString());
+                            int rake = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsRakeEdit)).getText().toString());
+                            int ridge = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsRidgeEdit)).getText().toString());
+                            int tileChipped = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumChipEdit)).getText().toString());
+                            int tileMisplaced = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumMissEdit)).getText().toString());
+                            int crown = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumCrownEdit)).getText().toString());
+                            int pipe = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumPipeEdit)).getText().toString());
+                            int chimney = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumChimEdit)).getText().toString());
+                            int skylight = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumSkyEdit)).getText().toString());
+                            ((TwoYearTuneUpJob)estimate.getJob()).setNumTileBroken(numTileBroken);
+                            ((TwoYearTuneUpJob)estimate.getJob()).setRake(rake);
+                            ((TwoYearTuneUpJob)estimate.getJob()).setRidge(ridge);
+                            ((TwoYearTuneUpJob)estimate.getJob()).setNumTileChipped(tileChipped);
+                            ((TwoYearTuneUpJob)estimate.getJob()).setNumTileMisplaced(tileMisplaced);
+                            ((TwoYearTuneUpJob)estimate.getJob()).setNumCrown(crown);
+                            ((TwoYearTuneUpJob)estimate.getJob()).setNumPipe(pipe);
+                            ((TwoYearTuneUpJob)estimate.getJob()).setNumChim(chimney);
+                            ((TwoYearTuneUpJob)estimate.getJob()).setNumSky(skylight);
+                            ((TwoYearTuneUpJob)estimate.getJob()).setType(matType);
+                            estimate.getJob().calculate();
+                            ((TextView)findViewById(R.id.display)).setText(
+                                    "job: " + jobType
+                                            + "\ntype: " + ((TwoYearTuneUpJob) estimate.getJob()).getType()
+                                            + "\ntotal: $" + Float.toString(((TwoYearTuneUpJob) estimate.getJob()).calculate()));
                             break;
                         case "5-Year Tune-Up":
+                            int numTileBroken5yr = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumBrokeEdit)).getText().toString());
+                            int rake5yr = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsRakeEdit)).getText().toString());
+                            int ridge5yr = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsRidgeEdit)).getText().toString());
+                            int tileChipped5yr = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumChipEdit)).getText().toString());
+                            int tileMisplaced5yr = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumMissEdit)).getText().toString());
+                            int crown5yr = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumCrownEdit)).getText().toString());
+                            int pipe5yr = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumPipeEdit)).getText().toString());
+                            int chimney5yr = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumChimEdit)).getText().toString());
+                            int skylight5yr = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumSkyEdit)).getText().toString());
+                            int pipesReplaced5yr = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNumOldCementEdit)).getText().toString());
+                            int trench5yr = Integer.parseInt(((EditText)
+                                    findViewById(R.id.yrsNum3InDrainEdit)).getText().toString());
+                            ((FiveYearTuneUpJob)estimate.getJob()).setNumTileBroken(numTileBroken5yr);
+                            ((FiveYearTuneUpJob)estimate.getJob()).setRake(rake5yr);
+                            ((FiveYearTuneUpJob)estimate.getJob()).setRidge(ridge5yr);
+                            ((FiveYearTuneUpJob)estimate.getJob()).setNumTileChipped(tileChipped5yr);
+                            ((FiveYearTuneUpJob)estimate.getJob()).setNumTileMisplaced(tileMisplaced5yr);
+                            ((FiveYearTuneUpJob)estimate.getJob()).setNumCrown(crown5yr);
+                            ((FiveYearTuneUpJob)estimate.getJob()).setNumPipe(pipe5yr);
+                            ((FiveYearTuneUpJob)estimate.getJob()).setNumChim(chimney5yr);
+                            ((FiveYearTuneUpJob)estimate.getJob()).setNumSky(skylight5yr);
+                            ((FiveYearTuneUpJob)estimate.getJob()).setNumPipesReplaced(pipesReplaced5yr);
+                            ((FiveYearTuneUpJob)estimate.getJob()).setNumTrench(trench5yr);
+                            ((FiveYearTuneUpJob)estimate.getJob()).setType(matType);
+                            estimate.getJob().calculate();
+                            ((TextView)findViewById(R.id.display)).setText(
+                                    "job: " + jobType
+                                            + "\ntype: " + ((FiveYearTuneUpJob) estimate.getJob()).getType()
+                                            + "\ntotal: $" + Float.toString(((FiveYearTuneUpJob) estimate.getJob()).calculate()));
                             break;
                         case "20-Year Lift and Re-lay":
                             int amount20 = Integer.parseInt(((EditText)
@@ -245,6 +314,9 @@ public class TabbedView extends Activity {
                             EditText edit3 = (EditText) findViewById(R.id.leakLocEdit);
                             edit3.setVisibility(View.VISIBLE);
                         } else if (jobType.equals("2-Year Tune-Up")) {
+                            TwoYearTuneUpJob job = new TwoYearTuneUpJob();
+                            estimate.setJob(job);
+
                             TextView text = (TextView) findViewById(R.id.yrsNumBroke);
                             text.setVisibility(View.VISIBLE);
                             EditText edit = (EditText) findViewById(R.id.yrsNumBrokeEdit);
@@ -289,6 +361,9 @@ public class TabbedView extends Activity {
                             edit10.setVisibility(View.VISIBLE);
 
                         } else if (jobType.equals("5-Year Tune-Up")) {
+                            FiveYearTuneUpJob job = new FiveYearTuneUpJob();
+                            estimate.setJob(job);
+
                             TextView text = (TextView) findViewById(R.id.yrsNumBroke);
                             text.setVisibility(View.VISIBLE);
                             EditText edit = (EditText) findViewById(R.id.yrsNumBrokeEdit);
