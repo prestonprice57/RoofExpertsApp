@@ -169,7 +169,40 @@ public class FiveYearTuneUpJob implements Job{
 
     @Override
     public String outputXML() {
-        return null;
+        return (        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                        "<?xml-stylesheet type=\"text/xsl\" href=\"fiveYearTuneUpJob.xsl\"?>\n" +
+                        "<estimate>" +
+                        "  <name>" + name + "</name>\n" +
+                        "  <age>" + age + "</age>\n" +
+                        "  <address>" + address + "</address>\n" +
+                        "  <city>" + city + "</city>\n" +
+                        "  <zip>" + zip + "</zip>\n" +
+                        "  <mobilePhone>" + mobilePhone + "</mobilePhone>\n" +
+                        "  <otherPhone>" + otherPhone + "</otherPhone>\n" +
+                        "  <email>" + email + "</email>\n" +
+                        "  <referral>" + referral + "</referral>\n" +
+                        "  <dateReceived>" + dateReceived + "</dateReceived>\n" +
+                        "  <dateScheduled>" + dateScheduled + "</dateScheduled>\n" +
+                        "  <product>" + product + "</product>\n" +
+                        "  <color>" + color + "</color>\n" +
+                        "  <pitch>" + pitch + "</pitch>\n" +
+                        "  <job>\n" +
+                        "    <type>" + type + "</type>\n" +
+                        "    <rake>" + rake + "</rake>\n" +
+                        "    <ridge>" + ridge + "</ridge>\n" +
+                        "    <numTileBroken>" + numTileBroken + "</numTileBroken>\n" +
+                        "    <numTileChiped>" + numTileChipped + "</numTileChiped>\n" +
+                        "    <numTileMisplaced>" + numTileMisplaced + "</numTileMisplaced>\n" +
+                        "    <numCrown>" + numCrown + "</numCrown>\n" +
+                        "    <numPipe>" + numPipe + "</numPipe>\n" +
+                        "    <numChim>" + numChim + "</numChim>\n" +
+                        "    <numSky>" + numSky + "</numSky>\n" +
+                        "    <numPipesReplaced>" + numPipesReplaced + "</numPipesReplaced>\n" +
+                        "    <numTrench>" + numTrench + "</numTrench>\n" +
+                        "    <jobTotal>" + jobTotal + "</jobTotal>\n" +
+                        "  </job>\n" +
+                        "</estimate>"
+        )
     }
 
     public void setNumTileBroken(int numTileBroken) {
