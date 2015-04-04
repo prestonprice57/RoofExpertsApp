@@ -469,6 +469,7 @@ public class TabbedView extends Activity {
             sendButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    System.out.println((getBaseContext().getFilesDir()).getPath());
                     String subject = ((EditText) findViewById(R.id.subject)).getText().toString();
                     String message = ((EditText) findViewById(R.id.messageBody)).getText().toString();
                     String to = ((EditText) findViewById(R.id.destinationAddress)).getText().toString();
@@ -479,6 +480,8 @@ public class TabbedView extends Activity {
                     //emailActivity.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + getBaseContext().getFilesDir()));
                     String filename = String.valueOf(((EditText)findViewById(R.id.attachment_name)).getText());
                     emailActivity.putExtra(Intent.EXTRA_STREAM,Uri.parse("file://" + Environment.getExternalStorageDirectory().getPath()+ "/Documents/" + filename));
+                    //emailActivity.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + getBaseContext().getFilesDir()));
+                    //emailActivity.putExtra(Intent.EXTRA_STREAM,Uri.parse("file://" + Environment.getExternalStorageDirectory().getPath()+ "/Documents/" + filename));
                     //set up the recipient address
                     emailActivity.putExtra(Intent.EXTRA_EMAIL, new String[] { to });
                     //set up the email subject

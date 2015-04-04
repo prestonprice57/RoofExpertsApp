@@ -197,7 +197,7 @@ public class FiveYearTuneUpJob implements Job{
 
     @Override
     public String toString() {
-        return "5YrTU";
+        return "5yrTU";
     }
 
     public void setNumTileBroken(int numTileBroken) {
