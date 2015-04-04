@@ -150,7 +150,20 @@ public class TwoYearTuneUpJob implements Job {
 
     @Override
     public String outputXML() {
-        return "";
+        return "  <job>\n" +
+                "    <type>" + type + "</type>\n" +
+                "    <numTileBroken>" + numTileBroken + "</numTileBroken>\n" +
+                "    <rake>" + rake + "</rake>\n" +
+                "    <ridge>" + ridge + "</ridge>\n" +
+                "    <numTileChipped>" + numTileChipped + "</numTileChipped>\n" +
+                "    <numTileMisplaced>" + numTileMisplaced + "</numTileMisplaced>\n" +
+                "    <numCrown>" + numCrown + "</numCrown>\n" +
+                "    <numPipe>" + numPipe + "</numPipe>\n" +
+                "    <numChim>" + numChim + "</numChim>\n" +
+                "    <numSky>" + numSky + "</numSky>\n" +
+                "    <jobTotal>" + jobTotal + "</jobTotal>\n" +
+                "  </job>\n" +
+                "</estimate>";
     }
 
     @Override
