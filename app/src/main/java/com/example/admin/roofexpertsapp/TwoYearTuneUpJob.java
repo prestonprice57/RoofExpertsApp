@@ -143,8 +143,19 @@ public class TwoYearTuneUpJob implements Job {
     }
 
     @Override
+    public String outputXMLHeading() {
+        return ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<?xml-stylesheet type=\"text/xsl\" href=\"twoYearTuneUpJob.xsl\"?>\n");
+    }
+
+    @Override
     public String outputXML() {
-        return null;
+        return "";
+    }
+
+    @Override
+    public String toString() {
+        return "2YrTU";
     }
 
 

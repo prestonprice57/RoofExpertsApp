@@ -1,8 +1,11 @@
 package com.example.admin.roofexpertsapp;
 
 import android.content.Context;
+import android.os.Environment;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -171,10 +174,21 @@ public class TileEstimate {
     }
 
     public void saveEstimate(Context context) {
+        String filename = (this.name.replaceAll(" ", "") + "_" + getJob().toString() + ".xml");
 
-        System.out.println("In SaveEstimate");
         try {
-            FileOutputStream fos = context.openFileOutput("hello.txt", Context.MODE_PRIVATE);
+            FileOutputStream fos = context.openFileOutput("Clients.txt", Context.MODE_APPEND);
+            fos.write(("----" + filename + "\n").getBytes());
+            fos.close();
+            System.out.print("file written");
+        } catch (Exception e) {
+            System.err.println("Error writing to the Clients file");
+            e.printStackTrace();
+        }
+
+        try {
+            FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
+            fos.write(job.outputXMLHeading().getBytes());
             fos.write("<estimate>\n".getBytes());
             fos.write(("\t<name>" + name + "</name>\n").getBytes());
             fos.write(("\t<age>" + age + "</age>\n").getBytes());
@@ -190,11 +204,42 @@ public class TileEstimate {
             fos.write(("\t<product>" + product + "</product>\n").getBytes());
             fos.write(("\t<color>" + color + "</color>\n").getBytes());
             fos.write(("\t<pitch>" + pitch + "</pitch>\n").getBytes());
+            fos.write((job.outputXML()).getBytes());
             fos.close();
-
         } catch (Exception e) {
             System.err.println("Error writing file");
             e.printStackTrace();
         }
+        String temp = "";
+        System.out.print("file written to " + context.getFilesDir() + "/" + filename);
+        try {
+            FileInputStream fin = context.openFileInput(filename);
+            int c;
+            while( (c = fin.read()) != -1) {
+                temp = temp + Character.toString((char)c);
+            }
+            System.out.println(temp);
+        } catch (Exception e) {
+            System.err.println("Error reading file");
+            e.printStackTrace();
+        }
+
+        try {
+            File tempFile = new File("file://" + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() + filename);
+
+            if (!tempFile.exists()) {
+
+                tempFile.createNewFile();
+
+            }
+            BufferedWriter buf = new BufferedWriter(new FileWriter(tempFile));
+            buf.write(temp);
+            buf.close();
+            System.out.println("Wrote File");
+        } catch (Exception e) {
+            System.out.println("file://" + Environment.getExternalStorageDirectory().getPath()+ "/Documents/" + filename);
+            e.printStackTrace();
+        }
+        System.out.println(filename);
     }
 }

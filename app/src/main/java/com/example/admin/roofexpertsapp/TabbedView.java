@@ -17,7 +17,9 @@ package com.example.admin.roofexpertsapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -214,6 +216,7 @@ public class TabbedView extends Activity {
                             ((TwoYearTuneUpJob)estimate.getJob()).setNumSky(skylight);
                             ((TwoYearTuneUpJob)estimate.getJob()).setType(matType);
                             estimate.getJob().calculate();
+                            estimate.saveEstimate(getBaseContext());
                             ((TextView)findViewById(R.id.display)).setText(
                                     "job: " + jobType
                                             + "\ntype: " + ((TwoYearTuneUpJob) estimate.getJob()).getType()
@@ -255,6 +258,7 @@ public class TabbedView extends Activity {
                             ((FiveYearTuneUpJob)estimate.getJob()).setNumTrench(trench5yr);
                             ((FiveYearTuneUpJob)estimate.getJob()).setType(matType);
                             estimate.getJob().calculate();
+                            estimate.saveEstimate(getBaseContext());
                             ((TextView)findViewById(R.id.display)).setText(
                                     "job: " + jobType
                                             + "\ntype: " + ((FiveYearTuneUpJob) estimate.getJob()).getType()
@@ -266,6 +270,7 @@ public class TabbedView extends Activity {
                             ((TwentyYearLiftJob)estimate.getJob()).setNumTilePullUp(amount20);
                             ((TwentyYearLiftJob)estimate.getJob()).setType(matType);
                             estimate.getJob().calculate();
+                            estimate.saveEstimate(getBaseContext());
                             ((TextView)findViewById(R.id.display)).setText(
                                       "job: " + jobType
                                     + "\namount: " + Float.toString(((TwentyYearLiftJob) estimate.getJob()).getNumTilePullUp())
@@ -471,7 +476,9 @@ public class TabbedView extends Activity {
                     emailActivity.setType("image/png");
                     // set the email image path for the attachment
                     //openFile(); // For attaching
-                    //emailActivity.putExtra(Intent.EXTRA_STREAM,Uri.parse("file://" + Environment.getExternalStorageDirectory().getPath()+ "/DCIM/Camera/1423350430843.jpg"));
+                    //emailActivity.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + getBaseContext().getFilesDir()));
+                    String filename = String.valueOf(((EditText)findViewById(R.id.attachment_name)).getText());
+                    emailActivity.putExtra(Intent.EXTRA_STREAM,Uri.parse("file://" + Environment.getExternalStorageDirectory().getPath()+ "/Documents/" + filename));
                     //set up the recipient address
                     emailActivity.putExtra(Intent.EXTRA_EMAIL, new String[] { to });
                     //set up the email subject
@@ -485,17 +492,6 @@ public class TabbedView extends Activity {
                     startActivity(Intent.createChooser(emailActivity, "Select your Email Provider :"));
                 }
             });
-        }
-
-
-        public void openFile() {
-            Intent intent = new Intent();
-            intent.setType("application/pdf");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            intent.putExtra("return-data", true);
-            startActivityForResult(
-                    Intent.createChooser(intent, "Complete action using"),
-                    PICK_FROM_FILE);
         }
     }
 }

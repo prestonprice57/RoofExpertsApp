@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.FileInputStream;
 
@@ -15,6 +17,20 @@ public class ClientPage extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_page);
+
+        try {
+            FileInputStream fin = getBaseContext().openFileInput("Clients.txt");
+            int c;
+            String temp="";
+            while( (c = fin.read()) != -1) {
+                temp = temp + Character.toString((char)c);
+
+            }
+            ((TextView)findViewById(R.id.clientsText)).setText(temp);
+        } catch (Exception e) {
+            System.err.println("Error reading file");
+            e.printStackTrace();
+        }
     }
 
 
@@ -42,18 +58,23 @@ public class ClientPage extends ActionBarActivity {
 
     public void load(View view) {
         try {
-            FileInputStream fin = openFileInput("hello.txt");
+            FileInputStream fin = getBaseContext().openFileInput(String.valueOf(((EditText)findViewById(R.id.fileNameEdit)).getText()));
+            System.out.println(String.valueOf(((EditText)findViewById(R.id.fileNameEdit)).getText()));
             int c;
             String temp="";
             while( (c = fin.read()) != -1) {
                 temp = temp + Character.toString((char)c);
             }
+            ((TextView)findViewById(R.id.displayText)).setText(temp);
+
+            System.out.println(temp);
+             /*
             String[] tempArray = temp.split("\n");
 
             for (String tempS : tempArray) {
                 System.out.println(tempS);
             }
-
+*/
         } catch (Exception e) {
             System.err.println("Error reading file");
             e.printStackTrace();

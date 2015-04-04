@@ -16,10 +16,8 @@
         android:id="@+id/destinationAddress"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress" >
-
+        android:inputType="textEmailAddress">
         <requestFocus />
-
     </EditText>
 
     <TextView
@@ -32,8 +30,7 @@
     <EditText
         android:id="@+id/subject"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
     </EditText>
 
     <TextView
@@ -50,6 +47,18 @@
         android:gravity="top"
         android:inputType="textMultiLine"
         android:lines="5" />
+
+
+    <TextView
+        android:id="@+id/attachment_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Attachment Name : "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/attachment_name"/>
 
     <Button
         android:id="@+id/emailButton"

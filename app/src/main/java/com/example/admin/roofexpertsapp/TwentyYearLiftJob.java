@@ -84,7 +84,23 @@ public class TwentyYearLiftJob implements Job{
     }
 
     @Override
+    public String outputXMLHeading() {
+        return ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<?xml-stylesheet type=\"text/xsl\" href=\"twentyYearTuneUpJob.xsl\"?>\n");
+    }
+
+    @Override
     public String outputXML() {
-        return null;
+        return "  <job>\n" +
+               "    <type>" + type + "</type>\n" +
+               "    <numTilePullUp>" + numTilePullUp + "</numTilePullUp>\n" +
+               "    <jobTotal>" + jobTotal + "</jobTotal>\n" +
+               "  </job>\n" +
+               "</estimate>";
+    }
+
+    @Override
+    public String toString() {
+        return "20yrTU";
     }
 }
