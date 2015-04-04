@@ -6,10 +6,6 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
         tools:context="com.example.admin.roofexpertsapp.ClientPage">
 
         <ImageView
@@ -22,28 +18,16 @@
             android:layout_height="wrap_content"
             android:id="@+id/logo"
             android:background="@drawable/logo"
-            android:layout_alignRight="@id/top_banner"
-            android:layout_alignEnd="@id/top_banner"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"/>
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/menu_icon"
-            android:background="@drawable/hamburger_icon"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"/>
-
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Load"
             android:id="@+id/button"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="25dp"
             android:onClick="load"
-            android:layout_below="@+id/top_banner"
-            android:layout_alignLeft="@+id/menu_icon"
-            android:layout_alignStart="@+id/menu_icon"/>
+            android:layout_below="@+id/fileNameEdit"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,10 +43,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/fileNameEdit"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:hint="Enter your Filename here" />
+            android:hint="Enter your Filename here"
+            android:layout_below="@+id/top_banner"
+            android:layout_alignLeft="@+id/top_banner"
+            android:layout_alignStart="@+id/top_banner"
+            android:layout_marginTop="22dp" />
 
         <TextView
             android:layout_width="wrap_content"
