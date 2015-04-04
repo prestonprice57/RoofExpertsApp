@@ -224,22 +224,24 @@ public class TileEstimate {
             e.printStackTrace();
         }
 
+        //File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        File path = new File(Environment.getExternalStorageDirectory().getPath()+ "/Documents/");
+
+        File tempFile = new File(path, filename);
+
         try {
-            File tempFile = new File("file://" + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() + filename);
 
-            if (!tempFile.exists()) {
-
-                tempFile.createNewFile();
-
-            }
+            path.mkdirs();
             BufferedWriter buf = new BufferedWriter(new FileWriter(tempFile));
             buf.write(temp);
             buf.close();
             System.out.println("Wrote File");
+
         } catch (Exception e) {
             System.out.println("file://" + Environment.getExternalStorageDirectory().getPath()+ "/Documents/" + filename);
             e.printStackTrace();
         }
+
         System.out.println(filename);
     }
 }
