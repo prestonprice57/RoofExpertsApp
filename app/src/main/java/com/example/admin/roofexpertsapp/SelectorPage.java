@@ -212,6 +212,9 @@ public class SelectorPage extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Clears the view.
+     */
     public void clearView() {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.form_layout);
         Button submit = (Button) findViewById(R.id.submitButton);
@@ -221,6 +224,7 @@ public class SelectorPage extends ActionBarActivity {
         }
     }
 
+    // Unused method?
     public void sendLeak(View view) {
 
     }

@@ -17,6 +17,10 @@ public class TwoYearTuneUpJob implements Job {
     private int numPipe;
     private float jobTotal;
 
+    /**
+     * Getter that returns the type.
+     * @return The type.
+     */
     public String getType() {
         return type;
     }
@@ -25,6 +29,9 @@ public class TwoYearTuneUpJob implements Job {
     private int numSky;
     private List<float[]> prices;
 
+    /**
+     * Initialize all member variables.
+     */
     public TwoYearTuneUpJob() {
         numTileBroken = 0;
         rake = 0;
@@ -57,6 +64,10 @@ public class TwoYearTuneUpJob implements Job {
         prices.add(new float[] {360, 480, 480, 1000});
     }
 
+    /**
+     * Calculate how much the job will cost
+     * @return The job total.
+     */
     public float calculate() {
         float total = 0;
         float [] brokenTileArray = prices.get(0);
@@ -172,6 +183,7 @@ public class TwoYearTuneUpJob implements Job {
     }
 
 
+    // Getters and setters.
     public void setNumTileBroken(int numTileBroken) {
         this.numTileBroken = numTileBroken;
     }

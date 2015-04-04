@@ -53,6 +53,7 @@ public class TileEstimate {
         pitch = "";
     }
 
+    // Getters and setters
     public String getName() {
         return name;
     }
@@ -173,6 +174,10 @@ public class TileEstimate {
         this.job = job;
     }
 
+    /**
+     * Saves an estimate in a file
+     * @param context Input.
+     */
     public void saveEstimate(Context context) {
         String filename = (this.name.replaceAll(" ", "") + "_" + getJob().toString() + ".xml");
 

@@ -56,6 +56,10 @@ public class ClientPage extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Loads the view
+     * @param view Gets info
+     */
     public void load(View view) {
         try {
             FileInputStream fin = getBaseContext().openFileInput(String.valueOf(((EditText)findViewById(R.id.fileNameEdit)).getText()));

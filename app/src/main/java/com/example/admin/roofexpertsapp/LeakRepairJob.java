@@ -15,6 +15,12 @@ public class LeakRepairJob implements Job {
     private List<float[]> prices;
     private int numLocations;
 
+    /**
+     * Initialize variables
+     * @param type Input.
+     * @param numTilePullUp Input.
+     * @param numLocations Input.
+     */
     public LeakRepairJob(String type, int numTilePullUp, int numLocations) {
         System.out.println("In constructor" + type + " " + numTilePullUp + " " + numLocations);
         this.type = type;
@@ -29,6 +35,7 @@ public class LeakRepairJob implements Job {
         prices.add(new float[] {7, 10, 10, 14});
     }
 
+    // Getters and setters
     public int getNumLocations() {
         return numLocations;
     }
@@ -63,6 +70,7 @@ public class LeakRepairJob implements Job {
         this.numTilePullUp = numTilePullUp;
     }
 
+    // Constructor
     public LeakRepairJob() {
         jobTotal = 0;
 
@@ -72,6 +80,11 @@ public class LeakRepairJob implements Job {
         prices.add(new float[] {7, 10, 10, 14});
     }
 
+    /**
+     * Determines the price.
+     * @param amount Input.
+     * @return The price.
+     */
     public float pricer(int amount) {
         float price = 0;
         float [] tempPrice;
@@ -96,6 +109,11 @@ public class LeakRepairJob implements Job {
         }
         return price;
     }
+
+    /**
+     * Calculates how much the Leak Repair job will cost
+     * @return The total cost of the job
+     */
     public float calculate() {
         System.err.println("amout: " + numTilePullUp);
         System.err.println("numLoc: " + numLocations);

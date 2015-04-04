@@ -12,7 +12,7 @@ public class TwentyYearLiftJob implements Job{
     private List<float[]> prices;
 
 
-
+    // Getters and setters
     public float getJobTotal() {
         return jobTotal;
     }
@@ -40,6 +40,9 @@ public class TwentyYearLiftJob implements Job{
         this.numTilePullUp = numTilePullUp;
     }
 
+    /**
+     * Initializes member variables
+     */
     public TwentyYearLiftJob() {
         jobTotal = 0;
 
@@ -49,6 +52,11 @@ public class TwentyYearLiftJob implements Job{
         prices.add(new float[] {480, 540, 540, 600});
     }
 
+    /**
+     * Returns the price.
+     * @param amount Input.
+     * @return The price.
+     */
     public float pricer(int amount) {
         float price = 0;
         float [] tempPrice;
@@ -74,6 +82,10 @@ public class TwentyYearLiftJob implements Job{
         return price;
     }
 
+    /**
+     * Calculates how much the job will cost
+     * @return Job total
+     */
     public float calculate() {
         System.err.println("amount: " + numTilePullUp);
         float price = pricer(numTilePullUp);

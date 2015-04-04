@@ -78,6 +78,9 @@ public class TabbedView extends Activity {
         tabs.addTab(spec3);
     }
 
+    /**
+     * Sets up the info page
+     */
     public class InfoPageSetterUpper {
 
         public void sendInfo() {
@@ -436,7 +439,9 @@ public class TabbedView extends Activity {
             });
         }
 
-
+        /**
+         * Clears the view
+         */
         public void clearView() {
             RelativeLayout layout = (RelativeLayout) findViewById(R.id.form_layout);
             Button submit = (Button) findViewById(R.id.submitButton);

@@ -3,6 +3,7 @@ package com.example.admin.roofexpertsapp;
 
 /**
  * Created by Palmer on 3/10/2015.
+ * Creates the document
  */
 public class DocumentCreator {
     private String name;

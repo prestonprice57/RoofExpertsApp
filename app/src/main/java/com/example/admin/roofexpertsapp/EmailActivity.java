@@ -12,6 +12,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * Activity that allows the user to Email
+ */
 public class EmailActivity extends Activity {
 
     private static final String TAG_EMAIL_ACTIVITY = "Email Activity"; // For logging

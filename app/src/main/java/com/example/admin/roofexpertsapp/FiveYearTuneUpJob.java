@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Created by admin on 3/30/15.
+ * 5 - year tune up job. For the estimate.
  */
 public class FiveYearTuneUpJob implements Job{
     private int numTileBroken;
@@ -14,6 +15,10 @@ public class FiveYearTuneUpJob implements Job{
 
     private float jobTotal;
 
+    /**
+     * Method that returns the type.
+     * @return Returns the type.
+     */
     public String getType() {
         return type;
     }
@@ -28,6 +33,9 @@ public class FiveYearTuneUpJob implements Job{
     private int numTrench;
     private List<float[]> prices;
 
+    /**
+     * Initializes all member variables.
+     */
     public FiveYearTuneUpJob() {
         numTileBroken = 0;
         rake = 0;
@@ -68,6 +76,10 @@ public class FiveYearTuneUpJob implements Job{
 
     }
 
+    /**
+     * Calculates how much the job will cost depending on what the user inputs.
+     * @return Returns the total amount the job will cost.
+     */
     public float calculate() {
         float total = 0;
         float [] brokenTileArray = prices.get(0);
@@ -200,6 +212,7 @@ public class FiveYearTuneUpJob implements Job{
         return "5yrTU";
     }
 
+    // Setters
     public void setNumTileBroken(int numTileBroken) {
         this.numTileBroken = numTileBroken;
     }
@@ -248,6 +261,7 @@ public class FiveYearTuneUpJob implements Job{
         this.numTrench = numTrench;
     }
 
+    // Getter
     public float getJobTotal() {
         return jobTotal;
     }

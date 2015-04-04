@@ -45,6 +45,9 @@ public class PersonalInfo extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Take what the user entered and store it in variables.
+     */
     public void data() {
         final EditText nameField = (EditText) findViewById(R.id.name);
         String name = nameField.getText().toString();
@@ -91,6 +94,8 @@ public class PersonalInfo extends ActionBarActivity {
         // Declare DocumentCreator object
         DocumentCreator documentCreator = new DocumentCreator();
     }
+
+    // Unused method?
     public void sendInfo() {
 
     }
